@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X, Sun, Moon, Shield, Lock } from "lucide-react";
+import { ChevronDown, Menu, X, Sun, Moon, Shield, Lock, DollarSign } from "lucide-react";
 import { useTheme } from "../context/ThemeContext"; // Import your theme context
 import { Link } from "react-router-dom";
 import { useScrollOrNavigate } from "../hooks/useScrollOrNavigate";
@@ -130,6 +131,7 @@ const NavigationBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobilePricingOpen, setMobilePricingOpen] = useState(false);
 
   // Scroll detection for navbar styling
   useEffect(() => {
@@ -231,6 +233,26 @@ const NavigationBar = () => {
       </NavDropdown>
     </div>
 
+    <div className="dropdown-trigger" onClick={(e) => e.stopPropagation()}>
+      <NavDropdown 
+        title="Pricing" 
+        isOpen={openDropdown === 'pricing'}
+        toggleDropdown={() => toggleDropdown('pricing')}
+        isDark={isDark}
+      >
+        <div className="space-y-2 dropdown-content">
+          <Link to="/pricing" onClick={() => setOpenDropdown(null)}>
+            <ProductCard 
+              icon={<DollarSign className="w-4 h-4" />} 
+              title="FuteurVault Pricing" 
+              description="Compare plans and find the perfect security solution for your team size and needs."
+              isDark={isDark}
+            />
+          </Link>
+        </div>
+      </NavDropdown>
+    </div>
+
     <button
       className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-opacity-10 ${
         isDark 
@@ -308,7 +330,6 @@ const NavigationBar = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileProductsOpen ? 'rotate-180' : ''}`} />
               </button>
 
-
               {mobileProductsOpen && (
                 <div className={`ml-4 pl-4 border-l-2 flex flex-col space-y-3 animate-in slide-in-from-left-1 duration-200 ${
                   isDark 
@@ -332,6 +353,36 @@ const NavigationBar = () => {
                         : 'text-slate-600 hover:text-slate-900 hover:bg-blue-100'
                     }`}>
                       Futeur Vault
+                    </button>
+                  </Link>
+                </div>
+              )}
+
+              <button 
+                onClick={() => setMobilePricingOpen(!mobilePricingOpen)} 
+                className={`flex justify-between items-center w-full py-3 px-4 text-left font-medium rounded-lg transition-colors duration-300 ${
+                  isDark 
+                    ? 'text-white hover:bg-purple-800/50' 
+                    : 'text-slate-900 hover:bg-blue-100'
+                }`}
+              >
+                Pricing
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobilePricingOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {mobilePricingOpen && (
+                <div className={`ml-4 pl-4 border-l-2 flex flex-col space-y-3 animate-in slide-in-from-left-1 duration-200 ${
+                  isDark 
+                    ? 'border-purple-500' 
+                    : 'border-blue-500'
+                }`}>
+                  <Link to="/pricing" onClick={() => setMobileMenuOpen(false)}>
+                    <button className={`w-full text-left py-2 px-3 rounded-lg transition-colors duration-300 ${
+                      isDark 
+                        ? 'text-purple-200 hover:text-white hover:bg-purple-800/50' 
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-blue-100'
+                    }`}>
+                      FuteurVault Pricing
                     </button>
                   </Link>
                 </div>

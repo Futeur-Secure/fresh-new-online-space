@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
 
         {/* Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
           <div>
             <h4 className="text-white font-semibold mb-4">Products</h4>
             <ul className="space-y-2">
@@ -106,6 +106,20 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">Pricing</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/pricing"
+                  className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                >
+                  FuteurVault Pricing
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div>
