@@ -39,7 +39,7 @@ const Trust = () => {
   const complianceStats = [
     { standard: "SOC 2 Type II", status: "Certified", icon: Award, color: "text-green-400" },
     { standard: "ISO 27001", status: "Certified", icon: Shield, color: "text-green-400" },
-    { standard: "FedRAMP", status: "Ready", icon: Flag, color: "text-blue-400" },
+    { standard: "FedRAMP", status: "Ready", icon: FileCheck, color: "text-blue-400" },
     { standard: "GDPR", status: "Compliant", icon: Globe, color: "text-green-400" },
   ];
 
