@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
 
         {/* Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <h4 className="text-white font-semibold mb-4">Products</h4>
             <ul className="space-y-2">
@@ -65,6 +65,47 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">For Businesses</h4>
+            <div className="mb-3">
+              <h5 className="text-slate-300 font-medium text-sm mb-2">FuteurVault</h5>
+              <ul className="space-y-2 pl-2">
+                <li>
+                  <Link
+                    to="/vault/teams"
+                    className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                  >
+                    Teams
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/vault/business"
+                    className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                  >
+                    Business
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/vault/maxx"
+                    className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                  >
+                    Maxx
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/vault/sovereign"
+                    className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                  >
+                    Sovereign
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
           
           <div>
@@ -88,6 +129,22 @@ const Footer = () => {
                   className="text-slate-400 hover:text-indigo-400 transition-colors duration-200 text-sm"
                 >
                   futureproof@futeursecure.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="/privacy" className="text-slate-400 hover:text-slate-300 transition-colors duration-200 text-sm">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms" className="text-slate-400 hover:text-slate-300 transition-colors duration-200 text-sm">
+                  Terms of Service
                 </a>
               </li>
             </ul>
