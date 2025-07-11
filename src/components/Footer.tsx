@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
 
         {/* Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           <div>
             <h4 className="text-white font-semibold mb-4">Products</h4>
             <ul className="space-y-2">
@@ -106,6 +106,28 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/about"
+                  className="text-slate-400 hover:text-slate-300 transition-colors duration-200 text-sm"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/trust"
+                  className="text-slate-400 hover:text-slate-300 transition-colors duration-200 text-sm"
+                >
+                  Trust
+                </Link>
+              </li>
+            </ul>
           </div>
           
           <div>

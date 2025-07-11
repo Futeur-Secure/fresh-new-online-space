@@ -12,6 +12,7 @@ import BookDemo from "./pages/BookDemo";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Trust from "./pages/Trust";
 import Dashboard from "./pages/Dashboard";
 import FuteurShield from "./pages/FuteurShield"
 import FuteurVault from "./pages/FuteurVault"
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/trust" element={<Trust />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/documentation" element={<Documentation />} />
           <Route path="/shield" element={<FuteurShield />} />
