@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Mail, Phone, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -21,22 +22,22 @@ const Footer = () => {
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a 
-              href="mailto:contact@futeur.ai" 
+              href="mailto:futureproof@futeursecure.com" 
               className="group flex items-center px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-lg border border-slate-700 hover:border-slate-600 transition-all duration-300"
             >
               <Mail className="w-4 h-4 mr-2 text-indigo-400" />
               <span className="text-sm font-medium text-slate-200 group-hover:text-white">
-                contact@futeur.ai
+                futureproof@futeursecure.com
               </span>
             </a>
             
             <a 
-              href="tel:+123456789" 
+              href="tel:202-770-1742" 
               className="group flex items-center px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-lg border border-slate-700 hover:border-slate-600 transition-all duration-300"
             >
               <Phone className="w-4 h-4 mr-2 text-purple-400" />
               <span className="text-sm font-medium text-slate-200 group-hover:text-white">
-                (123) 456-7890
+                202-770-1742
               </span>
             </a>
           </div>
@@ -62,6 +63,32 @@ const Footer = () => {
                 >
                   Futeur Vault
                 </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-semibold mb-4">Contact Info</h4>
+            <ul className="space-y-2">
+              <li className="text-slate-400 text-sm">
+                1156 15th St NW<br />
+                Washington, DC 20005
+              </li>
+              <li>
+                <a 
+                  href="tel:202-770-1742"
+                  className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                >
+                  202-770-1742
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:futureproof@futeursecure.com"
+                  className="text-slate-400 hover:text-indigo-400 transition-colors duration-200 text-sm"
+                >
+                  futureproof@futeursecure.com
+                </a>
               </li>
             </ul>
           </div>
