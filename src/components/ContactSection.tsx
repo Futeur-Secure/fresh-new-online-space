@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { 
   Calendar, Clock, Mail, MapPin, Phone, ExternalLink, Sparkles, 
@@ -451,7 +450,7 @@ const ContactSection = () => {
                   <div>
                     <h5 className={`text-sm ${themeClasses.subtitle} mb-1`}>Email Address</h5>
                     <p className={`font-semibold ${themeClasses.iconText} text-lg hover:underline`}>
-                      contact@futeur.ai
+                      futureproof@futeursecure.com
                     </p>
                   </div>
                 </div>
@@ -463,7 +462,7 @@ const ContactSection = () => {
                   <div>
                     <h5 className={`text-sm ${themeClasses.subtitle} mb-1`}>Phone Number</h5>
                     <p className={`font-semibold ${themeClasses.text} text-lg`}>
-                      +1 (800) 123-4567
+                      202-770-1742
                     </p>
                   </div>
                 </div>
@@ -475,8 +474,8 @@ const ContactSection = () => {
                   <div>
                     <h5 className={`text-sm ${themeClasses.subtitle} mb-1`}>Headquarters</h5>
                     <p className={`font-semibold ${themeClasses.text} text-lg leading-relaxed`}>
-                      32 6th Ave<br />
-                      New York, NY 10013
+                      1156 15th St NW<br />
+                      Washington, DC 20005
                     </p>
                   </div>
                 </div>
