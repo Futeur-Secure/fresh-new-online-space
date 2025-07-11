@@ -1,49 +1,119 @@
-
-import { Heart } from "lucide-react";
+import React from "react";
+import { Mail, Phone, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              YourBrand
-            </h3>
-            <p className="text-gray-300 mb-6 max-w-md">
-              We create digital experiences that inspire, engage, and deliver results. 
-              Let's transform your vision into reality.
-            </p>
-          </div>
+    <footer className="relative bg-indigo-950 text-slate-300 pt-16 pb-8 overflow-hidden">
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(79,70,229,0.1),transparent_50%)]"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-indigo-900/20 via-purple-900/10 to-transparent rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Compact Call to Action */}
+        <div className="text-center mb-12">
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Ready to secure your business?
+          </h3>
+          <p className="text-slate-400 max-w-xl mx-auto mb-6">
+            Contact us to learn about Futeur Shield and Futeur Vault.
+          </p>
           
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mobile Apps</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Consulting</a></li>
-            </ul>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a 
+              href="mailto:contact@futeur.ai" 
+              className="group flex items-center px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-lg border border-slate-700 hover:border-slate-600 transition-all duration-300"
+            >
+              <Mail className="w-4 h-4 mr-2 text-indigo-400" />
+              <span className="text-sm font-medium text-slate-200 group-hover:text-white">
+                contact@futeur.ai
+              </span>
+            </a>
+            
+            <a 
+              href="tel:+123456789" 
+              className="group flex items-center px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-lg border border-slate-700 hover:border-slate-600 transition-all duration-300"
+            >
+              <Phone className="w-4 h-4 mr-2 text-purple-400" />
+              <span className="text-sm font-medium text-slate-200 group-hover:text-white">
+                (123) 456-7890
+              </span>
+            </a>
           </div>
-          
+        </div>
+
+        {/* Navigation */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+            <h4 className="text-white font-semibold mb-4">Products</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/shield"
+                  className="text-slate-400 hover:text-indigo-400 transition-colors duration-200 text-sm"
+                >
+                  Futeur Shield
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/vault"
+                  className="text-slate-400 hover:text-purple-400 transition-colors duration-200 text-sm"
+                >
+                  Futeur Vault
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 YourBrand. All rights reserved.
+
+        {/* Divider */}
+        <div className="border-t border-slate-800 mb-8"></div>
+
+        {/* Brand and Social */}
+        <div className="flex flex-col md:flex-row items-center justify-between mb-6">
+          <div className="flex items-center space-x-3 mb-4 md:mb-0">
+            <img 
+              src="/icon.png" 
+              className="w-8 h-8 rounded-lg" 
+              alt="Futeur Secure Logo" 
+            />
+            <div>
+              <span className="text-white font-bold">Futeur Secure</span>
+              <div className="text-xs text-slate-400">Enterprise Security</div>
+            </div>
+          </div>
+
+          <div className="flex space-x-3">
+            {[
+              { icon: Linkedin, href: "#", color: "hover:text-blue-400" },
+              { icon: Instagram, href: "#", color: "hover:text-pink-400" },
+              { icon: Youtube, href: "#", color: "hover:text-red-400" }
+            ].map(({ icon: Icon, href, color }, index) => (
+              <a
+                key={index}
+                href={href}
+                className={`w-9 h-9 flex items-center justify-center bg-white/5 hover:bg-white/15 border border-slate-700 hover:border-slate-600 rounded-lg transition-all duration-300 ${color}`}
+              >
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Legal */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-slate-800">
+          <p className="text-xs text-slate-500 mb-3 md:mb-0">
+            © 2025 Futeur Secure. All rights reserved.
           </p>
-          <p className="text-gray-400 text-sm flex items-center mt-4 sm:mt-0">
-            Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> by YourBrand
-          </p>
+          <div className="flex space-x-6">
+            <a href="/privacy" className="text-xs text-slate-500 hover:text-slate-400 transition-colors duration-200">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="text-xs text-slate-500 hover:text-slate-400 transition-colors duration-200">
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,105 +1,287 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
+    --primary: 196 83% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 260 80% 74%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 223 47% 20%;
+    --muted-foreground: 210 40% 80%;
+    --accent: 260 80% 74%;
     --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
+    --border: 223 47% 20%;
+    --input: 223 47% 20%;
+    --ring: 196 83% 48%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Light mode colors - improved contrast */
+    --background-light: 210 40% 98%;
+    --foreground-light: 222 47% 11%;
+    --card-light: 0 0% 100%;
+    --card-foreground-light: 222 47% 11%;
+    --popover-light: 0 0% 100%;
+    --popover-foreground-light: 222 47% 11%;
+    --primary-light: 196 83% 48%;
+    --primary-foreground-light: 210 40% 98%;
+    --secondary-light: 260 80% 74%;
+    --secondary-foreground-light: 222 47% 11%;
+    --muted-light: 213 27% 94%;
+    --muted-foreground-light: 215 16% 47%;
+    --accent-light: 213 27% 94%;
+    --accent-foreground-light: 222 47% 11%;
+    --destructive-light: 0 84% 60%;
+    --destructive-foreground-light: 210 40% 98%;
+    --border-light: 214 32% 91%;
+    --input-light: 214 32% 91%;
+    --ring-light: 196 83% 48%;
+
+    --radius: 0.75rem;
   }
-}
 
-@layer base {
+  .light {
+    --background: var(--background-light);
+    --foreground: var(--foreground-light);
+    --card: var(--card-light);
+    --card-foreground: var(--card-foreground-light);
+    --popover: var(--popover-light);
+    --popover-foreground: var(--popover-foreground-light);
+    --primary: var(--primary-light);
+    --secondary: var(--secondary-light);
+    --muted: var(--muted-light);
+    --muted-foreground: var(--muted-foreground-light);
+    --accent: var(--accent-light);
+    --border: var(--border-light);
+    --input: var(--input-light);
+    --ring: var(--ring-light);
+  }
+
   * {
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-futeur-blue to-futeur-purple bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply border border-transparent bg-gradient-to-r from-futeur-blue to-futeur-purple bg-clip-border p-px rounded-lg;
+  }
+
+  /* Improved light mode styles */
+  .light .glass-panel {
+    @apply bg-white shadow-lg border border-gray-200;
+  }
+
+  .light .text-muted {
+    @apply text-gray-700;
+  }
+
+  .light .card-hover {
+    @apply hover:shadow-xl hover:border-futeur-blue/30;
+  }
+
+  .light a {
+    @apply text-gray-800 hover:text-futeur-blue transition-colors;
+  }
+
+  .light label {
+    @apply text-gray-800;
+  }
+
+  .light input, .light textarea, .light select {
+    @apply bg-white border-gray-300 text-gray-900;
+  }
+
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    @apply text-gray-900;
+  }
+
+  .light p {
+    @apply text-gray-800;
+  }
+
+  .light .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-futeur-blue to-futeur-purple;
+  }
+
+  /* Enhanced light mode specific styles */
+  .light .text-gray-300 {
+    @apply text-gray-700;
+  }
+  
+  .light ul li span {
+    @apply text-gray-800;
+  }
+  
+  .light .bg-white\/5 {
+    @apply bg-gray-100;
+  }
+  
+  .light .border-white\/10 {
+    @apply border-gray-300;
+  }
+  
+  .light .data-\[state\=active\]\:bg-white\/10 {
+    @apply data-[state=active]:bg-primary/20 data-[state=active]:text-gray-900;
+  }
+  
+  /* Fixed circular dependency - directly define instead of using @apply */
+  .light .bg-futeur-blue\/20 {
+    background-color: rgba(14, 165, 233, 0.2);
+    color: #0EA5E9;
+  }
+
+  .animated-gradient-bg {
+    background-size: 200% 200%;
+    background-image: linear-gradient(45deg, rgba(14, 165, 233, 0.15), rgba(155, 135, 245, 0.15), rgba(14, 165, 233, 0.15));
+    animation: gradient-animation 6s ease infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 15px rgba(14, 165, 233, 0.7);
+  }
+  
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.05) 20%,
+      rgba(255, 255, 255, 0.1) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  .light .shimmer::after {
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(0, 0, 0, 0.05) 20%,
+      rgba(0, 0, 0, 0.1) 60%,
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  /* Card reveal animation */
+  @keyframes card-reveal {
+    0% { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal {
+    animation: card-reveal 0.5s ease-out forwards;
+  }
+
+  /* Industry button pulse animation */
+  @keyframes button-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+    }
+  }
+  
+  .industry-button-active {
+    animation: button-pulse 1.5s infinite;
+  }
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hidden-overflow {
+  overflow: hidden;
+}
+
+.underline-animation {
+  position: relative;
+}
+
+.underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #0EA5E9, #9b87f5);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+
+.underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
