@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Check, X, Shield, Users, Building, Crown, Star, ArrowRight, Info, ChevronDown, ChevronUp, Globe, Smartphone, Lock, Eye, FileText, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -32,6 +31,7 @@ const Pricing = () => {
       limitations: [
         "Limited secure file storage (50MB)",
         "Basic sharing features only",
+        "Standard sharing features only",
         "Standard customer support"
       ],
       cta: "Get FuteurVault Free",
@@ -309,12 +309,12 @@ const Pricing = () => {
   const FeatureIcon = ({ included }: { included: boolean | string }) => {
     if (typeof included === 'boolean') {
       return included ? (
-        <Check className="w-5 h-5 text-green-500" />
+        <Check className="w-5 h-5 text-green-600" />
       ) : (
-        <X className="w-5 h-5 text-red-400" />
+        <X className="w-5 h-5 text-gray-400" />
       );
     }
-    return <span className="text-sm font-medium text-slate-700">{included}</span>;
+    return <span className="text-sm font-medium text-gray-900">{included}</span>;
   };
 
   const getPrice = (plan: any) => {
@@ -551,7 +551,7 @@ const Pricing = () => {
                   expandedFeature === category.category ? null : category.category
                 )}
               >
-                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors border border-slate-200">
+                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200">
                   <h3 className="text-xl font-bold text-slate-900">{category.category}</h3>
                   {expandedFeature === category.category ? (
                     <ChevronUp className="w-6 h-6 text-slate-600" />
@@ -562,9 +562,9 @@ const Pricing = () => {
                 
                 <CollapsibleContent className="pt-6">
                   <div className="overflow-x-auto">
-                    <table className="w-full border border-slate-200 rounded-lg">
+                    <table className="w-full border border-gray-200 rounded-lg bg-white">
                       <thead>
-                        <tr className="bg-slate-50 border-b border-slate-200">
+                        <tr className="bg-gray-50 border-b border-gray-200">
                           <th className="text-left py-4 px-6 font-bold text-slate-900 text-base">Feature</th>
                           <th className="text-center py-4 px-4 font-bold text-slate-900 text-base">Free</th>
                           <th className="text-center py-4 px-4 font-bold text-slate-900 text-base">Premium</th>
@@ -574,28 +574,28 @@ const Pricing = () => {
                           <th className="text-center py-4 px-4 font-bold text-slate-900 text-base">Enterprise</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody className="bg-white">
                         {category.features.map((feature, featureIndex) => (
-                          <tr key={featureIndex} className="border-b border-slate-100 hover:bg-slate-50">
-                            <td className="py-4 px-6">
+                          <tr key={featureIndex} className="border-b border-gray-100 hover:bg-gray-50">
+                            <td className="py-4 px-6 bg-white">
                               <div className="font-medium text-slate-900">{feature.name}</div>
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-4 px-4 bg-white">
                               <FeatureIcon included={feature.free} />
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-4 px-4 bg-white">
                               <FeatureIcon included={feature.premium} />
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-4 px-4 bg-white">
                               <FeatureIcon included={feature.families} />
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-4 px-4 bg-white">
                               <FeatureIcon included={feature.teams} />
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-4 px-4 bg-white">
                               <FeatureIcon included={feature.business} />
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-4 px-4 bg-white">
                               <FeatureIcon included={feature.enterprise} />
                             </td>
                           </tr>
@@ -640,7 +640,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -679,11 +679,11 @@ const Pricing = () => {
               }
             ].map((faq, index) => (
               <Collapsible key={index}>
-                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-white rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors">
+                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
                   <span className="font-semibold text-slate-900 text-left text-lg">{faq.question}</span>
                   <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="p-6 bg-slate-50 rounded-b-lg border border-t-0 border-slate-200">
+                <CollapsibleContent className="p-6 bg-white rounded-b-lg border border-t-0 border-gray-200">
                   <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
                 </CollapsibleContent>
               </Collapsible>
