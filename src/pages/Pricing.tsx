@@ -18,11 +18,12 @@ const Pricing = () => {
       description: "Basic password management",
       price: { monthly: 0, annual: 0 },
       icon: <Shield className="w-6 h-6" />,
-      color: "from-slate-600 to-slate-700",
+      color: "from-slate-500 to-slate-600",
+      textColor: "text-slate-700",
       popular: false,
       features: [
         "Store unlimited passwords",
-        "Sync across unlimited devices",
+        "Sync across unlimited devices", 
         "Secure password sharing",
         "Dark Web Monitoring",
         "Multi-factor Authentication",
@@ -42,7 +43,8 @@ const Pricing = () => {
       description: "Advanced password management with premium features",
       price: { monthly: 3, annual: 36 },
       icon: <Star className="w-6 h-6" />,
-      color: "from-purple-600 to-purple-700",
+      color: "from-purple-500 to-purple-600",
+      textColor: "text-purple-700",
       popular: true,
       features: [
         "Everything in Free, plus:",
@@ -63,7 +65,8 @@ const Pricing = () => {
       description: "Premium features for up to 6 family members",
       price: { monthly: 4, annual: 48 },
       icon: <Users className="w-6 h-6" />,
-      color: "from-blue-600 to-blue-700",
+      color: "from-blue-500 to-blue-600",
+      textColor: "text-blue-700",
       popular: false,
       features: [
         "Premium features for 6 users",
@@ -86,7 +89,8 @@ const Pricing = () => {
       description: "Password management for small teams",
       price: { monthly: 4, annual: 48 },
       icon: <Users className="w-6 h-6" />,
-      color: "from-green-600 to-green-700",
+      color: "from-green-500 to-green-600",
+      textColor: "text-green-700",
       popular: false,
       perUser: true,
       minUsers: "Starting at 3 users",
@@ -107,7 +111,8 @@ const Pricing = () => {
       description: "Advanced security for growing businesses",
       price: { monthly: 7, annual: 84 },
       icon: <Building className="w-6 h-6" />,
-      color: "from-indigo-600 to-indigo-700",
+      color: "from-indigo-500 to-indigo-600",
+      textColor: "text-indigo-700",
       popular: true,
       perUser: true,
       minUsers: "Starting at 50 users",
@@ -129,7 +134,8 @@ const Pricing = () => {
       description: "Maximum security for large organizations",
       price: "Custom",
       icon: <Crown className="w-6 h-6" />,
-      color: "from-purple-600 to-pink-600",
+      color: "from-purple-500 to-pink-500",
+      textColor: "text-purple-700",
       popular: false,
       perUser: false,
       minUsers: "100+ users",
@@ -388,19 +394,19 @@ const Pricing = () => {
             <TabsContent value="personal">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {personalPlans.map((plan, index) => (
-                  <Card key={index} className={`relative overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
+                  <Card key={index} className={`relative overflow-hidden border-2 transition-all duration-300 hover:scale-105 bg-white ${
                     plan.popular 
-                      ? 'border-purple-300 shadow-2xl ring-4 ring-purple-100' 
-                      : 'border-slate-200 hover:border-slate-300'
+                      ? 'border-purple-400 shadow-2xl ring-4 ring-purple-100' 
+                      : 'border-slate-200 hover:border-slate-300 shadow-lg'
                   }`}>
                     {plan.popular && (
-                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-center py-3 text-sm font-bold">
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-3 text-sm font-bold">
                         MOST POPULAR
                       </div>
                     )}
                     <CardContent className={`p-8 ${plan.popular ? 'pt-16' : 'pt-8'}`}>
                       <div className="flex items-center mb-6">
-                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${plan.color} flex items-center justify-center text-white mr-4`}>
+                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${plan.color} flex items-center justify-center text-white mr-4 shadow-lg`}>
                           {plan.icon}
                         </div>
                         <div>
@@ -431,7 +437,7 @@ const Pricing = () => {
                       </div>
 
                       <Link to={plan.ctaLink}>
-                        <Button className={`w-full mb-8 py-3 text-base font-semibold bg-gradient-to-r ${plan.color} hover:opacity-90 text-white`}>
+                        <Button className={`w-full mb-8 py-3 text-base font-semibold bg-gradient-to-r ${plan.color} hover:opacity-90 text-white shadow-lg`}>
                           {plan.cta}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -468,19 +474,19 @@ const Pricing = () => {
             <TabsContent value="business">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {businessPlans.map((plan, index) => (
-                  <Card key={index} className={`relative overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
+                  <Card key={index} className={`relative overflow-hidden border-2 transition-all duration-300 hover:scale-105 bg-white ${
                     plan.popular 
-                      ? 'border-purple-300 shadow-2xl ring-4 ring-purple-100' 
-                      : 'border-slate-200 hover:border-slate-300'
+                      ? 'border-purple-400 shadow-2xl ring-4 ring-purple-100' 
+                      : 'border-slate-200 hover:border-slate-300 shadow-lg'
                   }`}>
                     {plan.popular && (
-                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-center py-3 text-sm font-bold">
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-3 text-sm font-bold">
                         MOST POPULAR
                       </div>
                     )}
                     <CardContent className={`p-8 ${plan.popular ? 'pt-16' : 'pt-8'}`}>
                       <div className="flex items-center mb-6">
-                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${plan.color} flex items-center justify-center text-white mr-4`}>
+                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${plan.color} flex items-center justify-center text-white mr-4 shadow-lg`}>
                           {plan.icon}
                         </div>
                         <div>
@@ -507,7 +513,7 @@ const Pricing = () => {
                       </div>
 
                       <Link to={plan.ctaLink}>
-                        <Button className={`w-full mb-8 py-3 text-base font-semibold bg-gradient-to-r ${plan.color} hover:opacity-90 text-white`}>
+                        <Button className={`w-full mb-8 py-3 text-base font-semibold bg-gradient-to-r ${plan.color} hover:opacity-90 text-white shadow-lg`}>
                           {plan.cta}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -551,7 +557,7 @@ const Pricing = () => {
                   expandedFeature === category.category ? null : category.category
                 )}
               >
-                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200">
+                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors border border-slate-200">
                   <h3 className="text-xl font-bold text-slate-900">{category.category}</h3>
                   {expandedFeature === category.category ? (
                     <ChevronUp className="w-6 h-6 text-slate-600" />
@@ -562,9 +568,9 @@ const Pricing = () => {
                 
                 <CollapsibleContent className="pt-6">
                   <div className="overflow-x-auto">
-                    <table className="w-full border border-gray-200 rounded-lg bg-white">
+                    <table className="w-full border border-slate-200 rounded-lg bg-white shadow-sm">
                       <thead>
-                        <tr className="bg-gray-50 border-b border-gray-200">
+                        <tr className="bg-slate-50 border-b border-slate-200">
                           <th className="text-left py-4 px-6 font-bold text-slate-900 text-base">Feature</th>
                           <th className="text-center py-4 px-4 font-bold text-slate-900 text-base">Free</th>
                           <th className="text-center py-4 px-4 font-bold text-slate-900 text-base">Premium</th>
@@ -576,7 +582,7 @@ const Pricing = () => {
                       </thead>
                       <tbody className="bg-white">
                         {category.features.map((feature, featureIndex) => (
-                          <tr key={featureIndex} className="border-b border-gray-100 hover:bg-gray-50">
+                          <tr key={featureIndex} className="border-b border-slate-100 hover:bg-slate-50">
                             <td className="py-4 px-6 bg-white">
                               <div className="font-medium text-slate-900">{feature.name}</div>
                             </td>
@@ -679,11 +685,11 @@ const Pricing = () => {
               }
             ].map((faq, index) => (
               <Collapsible key={index}>
-                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                <CollapsibleTrigger className="flex items-center justify-between w-full p-6 bg-white rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors">
                   <span className="font-semibold text-slate-900 text-left text-lg">{faq.question}</span>
                   <ChevronDown className="w-5 h-5 text-slate-600 flex-shrink-0" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="p-6 bg-white rounded-b-lg border border-t-0 border-gray-200">
+                <CollapsibleContent className="p-6 bg-white rounded-b-lg border border-t-0 border-slate-200">
                   <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
                 </CollapsibleContent>
               </Collapsible>
