@@ -1149,6 +1149,33 @@ const FuteurVault = () => {
               Deploy enterprise-grade security with zero-trust architecture, automated compliance, and real-time threat detection.
             </p>
 
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <button 
+                onClick={() => window.location.href = '/signup'}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 min-w-[200px]"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Get Started Free
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+              
+              <button 
+                onClick={() => window.location.href = '/book-demo'}
+                className={`group px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 min-w-[200px] border-2 ${
+                  isDark 
+                    ? 'border-slate-600 text-slate-300 hover:border-slate-500 hover:bg-slate-800/50' 
+                    : 'border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50'
+                }`}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Play className="w-5 h-5" />
+                  Book a Demo
+                </span>
+              </button>
+            </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
               <div className={`flex items-center ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
