@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import React from "react";
 import Waitlist from "@/components/WaitlistForm";
 import PricingSection from "@/components/Pricing";
+import VaultFAQ from "@/components/vault/VaultFAQ";
 
 const FuteurVault = () => {
   const { theme } = useTheme();
@@ -27,6 +28,7 @@ const FuteurVault = () => {
     { value: 'SOC 2', label: 'Type II Certified', icon: Award },
     { value: '24/7', label: 'Expert Support', icon: Shield }
   ];
+
   // Load Lottie animation
   useEffect(() => {
     let animationInstance = null;
@@ -130,8 +132,6 @@ const FuteurVault = () => {
     { name: "GDPR", icon: Lock, status: "Compliant" },
     { name: "HIPAA", icon: FileText, status: "Ready" }
   ];
-
-
 
   const useCases = [
     {
@@ -241,7 +241,6 @@ const FuteurVault = () => {
           </div>
         </div>
       </section>
-
 
       {/* Product Preview */}
       <section className="py-16 px-6">
@@ -811,7 +810,6 @@ const FuteurVault = () => {
         </div>
       </section>
 
-      
       <PricingSection isDark={isDark} />
       {/* Compliance & Certifications */}
       <section className="py-20 px-6">
@@ -970,11 +968,11 @@ const FuteurVault = () => {
           </div>
         </div>
       </section>
-      <Footer />
 
+      <VaultFAQ />
+
+      <Footer />
     </div>
-  
-    
   );  
 };
 
