@@ -163,9 +163,8 @@ const PricingSection = ({ isDark }) => {
                 </div>
 
                 {/* CTA Button */}
-                <a 
-                  href="https://vault.futeursecure.com/login"
-                  className={`w-full rounded-md group transition-all duration-300 ${
+                <button 
+                  className={`w-full px-6 py-3 rounded-md flex items-center justify-center group transition-all duration-300 mb-4 ${
                     plan.isRecommended 
                       ? 'bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700'
                       : `${
@@ -177,13 +176,15 @@ const PricingSection = ({ isDark }) => {
                 >
                   <span>{plan.cta}</span>
                   <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                </button>
 
                 {/* Min Users */}
                 {plan.minUsers && (
-                  <p className={`text-center text-sm mb-6 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    {plan.minUsers}
-                  </p>
+                  <div className={`text-center mb-6 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <p className="text-sm">
+                      {plan.minUsers}
+                    </p>
+                  </div>
                 )}
 
                 {/* Base Features */}
@@ -196,7 +197,7 @@ const PricingSection = ({ isDark }) => {
                 )}
 
                 {/* Features */}
-                <div className="space-y-3">
+                <div className="space-y-3 mb-6">
                   {plan.features.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
@@ -211,8 +212,8 @@ const PricingSection = ({ isDark }) => {
                 </div>
 
                 {/* Billing */}
-                <div className={`mt-6 pt-4 border-t ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
-                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                <div className={`pt-4 border-t ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
+                  <p className={`text-sm text-center ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                     Billed at {plan.billedAt}
                   </p>
                 </div>

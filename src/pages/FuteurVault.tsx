@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Play, Shield, Database, Rocket, Check, Star, ArrowUpRight, ChevronDown, Zap, Globe, Lock, Brain, Layers, Award, Users, Cpu, Cloud, FileText, BarChart3, Settings, Briefcase, Key, TrendingUp, Smartphone, MonitorSpeaker, TabletSmartphone, Chrome, Search, Timer, Fingerprint, HardDrive, Eye, AlertTriangle, RefreshCw } from "lucide-react";
+import { ArrowRight, Play, Shield, Database, Rocket, Check, Star, ArrowUpRight, ChevronDown, Zap, Globe, Lock, Brain, Layers, Award, Users, Cpu, Cloud, FileText, BarChart3, Settings, Briefcase, Key, TrendingUp, Smartphone, MonitorSpeaker, TabletSmartphone, Chrome, Search, Timer, Fingerprint, HardDrive, Eye, AlertTriangle, RefreshCw, CheckCircle, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { resetScroll } from "@/utils/navigationHelpers";
 import { useTheme } from "@/context/ThemeContext";
@@ -941,14 +941,19 @@ const FuteurVault = () => {
 
       <PricingSection isDark={isDark} />
       {/* Compliance & Certifications */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-blue-50/30 dark:from-emerald-950/20 dark:to-blue-950/20"></div>
+        <div className="max-w-6xl mx-auto relative">
           <div id="compliance-header" data-animate className={`text-center mb-16 transition-all duration-700 ${isVisible['compliance-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className={`text-2xl md:text-3xl font-medium mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Compliance & Certifications
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-6">
+              <Shield className="w-4 h-4" />
+              Security First Approach
+            </div>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Compliance & <span className="text-emerald-600 dark:text-emerald-400">Certifications</span>
             </h2>
-            <p className={`text-base ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Meeting the highest security and compliance standards
+            <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Meeting the highest security and compliance standards with industry-leading certifications
             </p>
           </div>
 
@@ -958,17 +963,32 @@ const FuteurVault = () => {
                 key={i}
                 id={`cert-${i}`}
                 data-animate
-                className={`transition-all duration-700 ${isVisible[`cert-${i}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`group transition-all duration-700 hover-scale ${isVisible[`cert-${i}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className={`p-4 rounded-lg border text-center ${isDark ? 'bg-slate-900/20 border-slate-800/30' : 'bg-white border-slate-200/50'}`}>
-                  <cert.icon className={`w-6 h-6 mx-auto mb-3 ${isDark ? 'text-slate-300' : 'text-slate-700'}`} />
-                  <h4 className={`text-sm font-medium mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                <div className={`relative p-6 rounded-2xl border-2 text-center transition-all duration-300 cursor-pointer ${
+                  cert.status === 'Certified' 
+                    ? `border-emerald-200 bg-emerald-50/50 hover:bg-emerald-50 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-100/50 ${isDark ? 'dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:hover:bg-emerald-950/50 dark:hover:border-emerald-700 dark:hover:shadow-emerald-900/20' : ''}`
+                    : `border-blue-200 bg-blue-50/50 hover:bg-blue-50 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100/50 ${isDark ? 'dark:border-blue-800/50 dark:bg-blue-950/30 dark:hover:bg-blue-950/50 dark:hover:border-blue-700 dark:hover:shadow-blue-900/20' : ''}`
+                }`}>
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl mb-4 transition-all duration-300 group-hover:scale-110 ${
+                    cert.status === 'Certified'
+                      ? `bg-emerald-100 text-emerald-600 ${isDark ? 'dark:bg-emerald-900/50 dark:text-emerald-400' : ''}`
+                      : `bg-blue-100 text-blue-600 ${isDark ? 'dark:bg-blue-900/50 dark:text-blue-400' : ''}`
+                  }`}>
+                    <cert.icon className="w-8 h-8" />
+                  </div>
+                  <h4 className={`text-lg font-bold mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     {cert.name}
                   </h4>
-                  <span className={`text-xs px-2 py-1 rounded ${cert.status === 'Certified' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'}`}>
+                  <div className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    cert.status === 'Certified' 
+                      ? `bg-emerald-600 text-white shadow-lg shadow-emerald-600/25 ${isDark ? 'dark:bg-emerald-500 dark:shadow-emerald-500/25' : ''}`
+                      : `bg-blue-600 text-white shadow-lg shadow-blue-600/25 ${isDark ? 'dark:bg-blue-500 dark:shadow-blue-500/25' : ''}`
+                  }`}>
+                    {cert.status === 'Certified' ? <CheckCircle className="w-3 h-3" /> : <Clock className="w-3 h-3" />}
                     {cert.status}
-                  </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -977,72 +997,122 @@ const FuteurVault = () => {
       </section>
 
       {/* Integration Ecosystem */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-950/20 dark:to-purple-950/20"></div>
+        <div className="max-w-6xl mx-auto relative">
           <div id="integrations-header" data-animate className={`text-center mb-16 transition-all duration-700 ${isVisible['integrations-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className={`text-2xl md:text-3xl font-medium mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Seamless Integrations
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
+              <Zap className="w-4 h-4" />
+              Universal Compatibility
+            </div>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Seamless <span className="text-blue-600 dark:text-blue-400">Integrations</span>
             </h2>
-            <p className={`text-base ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Works with your existing infrastructure and tools
+            <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Works effortlessly with your existing infrastructure and development tools
             </p>
           </div>
 
-          <div id="integrations-grid" data-animate className={`grid grid-cols-3 md:grid-cols-6 gap-4 transition-all duration-700 ${isVisible['integrations-grid'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div id="integrations-grid" data-animate className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 transition-all duration-700 ${isVisible['integrations-grid'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {integrations.map((integration, i) => (
               <div
                 key={i}
-                className={`p-4 rounded-lg border text-center transition-all duration-300 hover:scale-105 ${isDark ? 'bg-slate-900/20 border-slate-800/30 hover:border-slate-700/50' : 'bg-white border-slate-200/50 hover:border-slate-300'}`}
+                className={`group relative p-6 rounded-2xl border-2 text-center transition-all duration-300 cursor-pointer hover-scale ${
+                  isDark 
+                    ? 'border-slate-700/50 bg-slate-800/30 hover:bg-slate-700/50 hover:border-slate-600 hover:shadow-lg hover:shadow-slate-900/25' 
+                    : 'border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/50'
+                }`}
               >
-                <div className="text-2xl mb-2">{integration.logo}</div>
-                <div className={`text-xs font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                <div className="text-3xl mb-3 transition-all duration-300 group-hover:scale-110">{integration.logo}</div>
+                <div className={`text-sm font-semibold transition-colors duration-300 ${
+                  isDark ? 'text-slate-300 group-hover:text-white' : 'text-slate-700 group-hover:text-slate-900'
+                }`}>
                   {integration.name}
                 </div>
+                <div className={`absolute inset-0 rounded-2xl border-2 border-blue-500/0 group-hover:border-blue-500/20 transition-all duration-300 ${
+                  isDark ? 'group-hover:shadow-blue-500/10' : 'group-hover:shadow-blue-500/5'
+                }`}></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-6xl mx-auto">
+      {/* Social Proof & Statistics */}
+      <section className="py-20 px-6 relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-orange-50/30 dark:from-purple-950/20 dark:to-orange-950/20"></div>
+        <div className="max-w-6xl mx-auto relative">
           <div id="social-proof" data-animate className={`transition-all duration-700 ${isVisible['social-proof'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="text-center mb-12">
-              <p className={`text-sm font-semibold tracking-wide uppercase mb-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                Trusted by Industry Leaders
-              </p>
-              <p className={`text-lg ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                Join thousands of security professionals who rely on our platform
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium mb-6">
+                <Star className="w-4 h-4" />
+                Industry Leaders Trust Us
+              </div>
+              <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                Trusted by <span className="text-purple-600 dark:text-purple-400">Thousands</span>
+              </h2>
+              <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                Join security professionals who rely on our platform for mission-critical protection
               </p>
             </div>
             
             {/* Company Logos */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
               {companies.map((company, i) => (
-                <div key={i} className={`group flex flex-col items-center p-6 rounded-xl transition-all duration-300 hover:scale-105 ${isDark ? 'bg-slate-800/50 hover:bg-slate-700/50' : 'bg-slate-50 hover:bg-slate-100'}`}>
-                  <div className="text-2xl mb-3">{company.logo}</div>
-                  <div className={`text-base font-semibold ${isDark ? 'text-slate-300 group-hover:text-white' : 'text-slate-700 group-hover:text-slate-900'} transition-colors`}>
+                <div 
+                  key={i} 
+                  className={`group relative p-8 rounded-2xl border-2 text-center transition-all duration-300 cursor-pointer hover-scale ${
+                    isDark 
+                      ? 'border-slate-700/50 bg-slate-800/40 hover:bg-slate-700/60 hover:border-slate-600 hover:shadow-lg hover:shadow-slate-900/25' 
+                      : 'border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/50'
+                  }`}
+                >
+                  <div className="text-4xl mb-4 transition-all duration-300 group-hover:scale-110">{company.logo}</div>
+                  <div className={`text-lg font-bold transition-colors duration-300 ${
+                    isDark ? 'text-slate-300 group-hover:text-white' : 'text-slate-700 group-hover:text-slate-900'
+                  }`}>
                     {company.name}
                   </div>
+                  <div className={`absolute inset-0 rounded-2xl border-2 border-purple-500/0 group-hover:border-purple-500/20 transition-all duration-300 ${
+                    isDark ? 'group-hover:shadow-purple-500/10' : 'group-hover:shadow-purple-500/5'
+                  }`}></div>
                 </div>
               ))}
             </div>
 
-            {/* Stats */}
+            {/* Enhanced Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, i) => {
                 const Icon = stat.icon;
+                const colors = [
+                  { bg: 'bg-emerald-500', shadow: 'shadow-emerald-500/25', text: 'text-emerald-600 dark:text-emerald-400' },
+                  { bg: 'bg-blue-500', shadow: 'shadow-blue-500/25', text: 'text-blue-600 dark:text-blue-400' },
+                  { bg: 'bg-purple-500', shadow: 'shadow-purple-500/25', text: 'text-purple-600 dark:text-purple-400' },
+                  { bg: 'bg-orange-500', shadow: 'shadow-orange-500/25', text: 'text-orange-600 dark:text-orange-400' }
+                ];
+                const color = colors[i % colors.length];
+                
                 return (
-                  <div key={i} className={`text-center p-6 rounded-xl border transition-all duration-300 hover:scale-105 ${isDark ? 'border-slate-700 bg-slate-800/30 hover:bg-slate-800/50' : 'border-slate-200 bg-white hover:bg-slate-50'}`}>
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg mb-4 ${isDark ? 'bg-slate-700 text-slate-300' : 'bg-slate-100 text-slate-600'}`}>
-                      <Icon className="w-6 h-6" />
+                  <div 
+                    key={i} 
+                    className={`group relative text-center p-8 rounded-2xl border-2 transition-all duration-300 cursor-pointer hover-scale ${
+                      isDark 
+                        ? 'border-slate-700/50 bg-slate-800/40 hover:bg-slate-700/60 hover:border-slate-600 hover:shadow-xl hover:shadow-slate-900/25' 
+                        : 'border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50'
+                    }`}
+                  >
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-300 group-hover:scale-110 ${color.bg} text-white shadow-lg ${color.shadow}`}>
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <div className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    <div className={`text-3xl md:text-4xl font-bold mb-3 transition-colors duration-300 ${color.text}`}>
                       {stat.value}
                     </div>
-                    <div className={`text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                    <div className={`text-sm font-semibold transition-colors duration-300 ${
+                      isDark ? 'text-slate-400 group-hover:text-slate-300' : 'text-slate-600 group-hover:text-slate-700'
+                    }`}>
                       {stat.label}
                     </div>
+                    <div className={`absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-${color.bg.split('-')[1]}-500/20 transition-all duration-300`}></div>
                   </div>
                 );
               })}
@@ -1079,6 +1149,33 @@ const FuteurVault = () => {
               Deploy enterprise-grade security with zero-trust architecture, automated compliance, and real-time threat detection.
             </p>
 
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <button 
+                onClick={() => window.location.href = '/signup'}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 min-w-[200px]"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Get Started Free
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+              
+              <button 
+                onClick={() => window.location.href = '/book-demo'}
+                className={`group px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 min-w-[200px] border-2 ${
+                  isDark 
+                    ? 'border-slate-600 text-slate-300 hover:border-slate-500 hover:bg-slate-800/50' 
+                    : 'border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50'
+                }`}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <Play className="w-5 h-5" />
+                  Book a Demo
+                </span>
+              </button>
+            </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
               <div className={`flex items-center ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
