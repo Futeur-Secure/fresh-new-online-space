@@ -212,7 +212,7 @@ const FuteurCredUseCase = () => {
     },
     {
       feature: "Quantum-Resistant Prep",
-      description: "Future-proofed algorithms like Kyber integrated into roadmap.",
+      description: "Future-proofed algorithms like Nexus-Q integrated into roadmap.",
       icon: Zap
     },
     {
@@ -641,36 +641,81 @@ const FuteurCredUseCase = () => {
       </section>
 
       {/* Security Measures Breakdown */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-6 bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-900 relative overflow-hidden">
+        {/* Dark animated background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/50 via-transparent to-slate-900/50"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Breakdown of Security Measures
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Every layer of protection explained in detail
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+              Every layer of protection explained in detail with military-grade precision
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <div className="min-w-full bg-card border border-border rounded-2xl overflow-hidden">
-              <div className="bg-muted/50 px-6 py-4 border-b border-border">
-                <div className="grid grid-cols-3 gap-4">
-                  <h3 className="font-bold">Feature</h3>
-                  <h3 className="font-bold col-span-2">How It Works</h3>
-                </div>
-              </div>
-              
-              {securityFeatures.map((item, index) => (
-                <div key={index} className="px-6 py-4 border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
-                  <div className="grid grid-cols-3 gap-4 items-center">
-                    <div className="flex items-center">
-                      <item.icon className="h-5 w-5 text-primary mr-3" />
-                      <span className="font-semibold">{item.feature}</span>
+          {/* Enhanced Card Grid Layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {securityFeatures.map((item, index) => (
+              <div 
+                key={index} 
+                className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-700/50 hover:border-slate-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+              >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  {/* Icon with animated background */}
+                  <div className="mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center group-hover:from-blue-600/20 group-hover:to-purple-600/20 transition-all duration-500 group-hover:scale-110 shadow-lg">
+                      <item.icon className="h-7 w-7 text-slate-400 group-hover:text-blue-400 transition-colors duration-500" />
                     </div>
-                    <div className="col-span-2 text-muted-foreground">
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-blue-100 transition-colors duration-300">
+                      {item.feature}
+                    </h3>
+                    
+                    <p className="text-slate-300 group-hover:text-slate-200 transition-colors duration-300 leading-relaxed">
                       {item.description}
-                    </div>
+                    </p>
+                  </div>
+
+                  {/* Status indicator */}
+                  <div className="mt-6 flex items-center">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
+                    <span className="text-sm text-emerald-300 font-medium">Active Protection</span>
+                  </div>
+                </div>
+
+                {/* Subtle glow effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:via-purple-500/5 group-hover:to-blue-500/5 transition-all duration-500 pointer-events-none"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Enhanced Security Stats */}
+          <div className="mt-16 bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { label: "Threat Detection", value: "24/7", color: "text-blue-400" },
+                { label: "Encryption Keys", value: "256-bit", color: "text-purple-400" },
+                { label: "Zero Knowledge", value: "100%", color: "text-emerald-400" },
+                { label: "Quantum Ready", value: "Yes", color: "text-cyan-400" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center group cursor-pointer">
+                  <div className={`text-3xl md:text-4xl font-bold ${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate-400 font-medium group-hover:text-slate-300 transition-colors duration-300">
+                    {stat.label}
                   </div>
                 </div>
               ))}
