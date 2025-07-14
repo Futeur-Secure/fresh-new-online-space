@@ -25,6 +25,8 @@ import FuteurVaultTeams from "./pages/vault/FuteurVaultTeams";
 import FuteurVaultBusiness from "./pages/vault/FuteurVaultBusiness";
 import FuteurVaultMaxx from "./pages/vault/FuteurVaultMaxx";
 import FuteurVaultSovereign from "./pages/vault/FuteurVaultSovereign";
+import UseCases from "./pages/UseCases";
+import FuteurCredUseCase from "./pages/FuteurCredUseCase";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +57,9 @@ const App = () => (
           <Route path="/vault/business" element={<FuteurVaultBusiness />} />
           <Route path="/vault/maxx" element={<FuteurVaultMaxx />} />
           <Route path="/vault/sovereign" element={<FuteurVaultSovereign />} />
+          {/* Use Cases */}
+          <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/use-cases/futeurcred" element={<FuteurCredUseCase />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
