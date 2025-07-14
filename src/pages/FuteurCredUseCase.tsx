@@ -262,6 +262,11 @@ const FuteurCredUseCase = () => {
       icon: TrendingUp,
       title: "Tradeline + Payment Behavior",
       description: "Encrypted, zero-knowledge stored, never shared without explicit owner initiation."
+    },
+    {
+      icon: User,
+      title: "Owner Personal Data",
+      description: "Unlike other platforms, we delete ALL consumer data immediately upon verification. We keep absolutely nothing."
     }
   ];
 
