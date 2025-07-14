@@ -60,7 +60,7 @@ const InteractiveVaultFAQ = () => {
         .from('vault_faqs')
         .select('*', { count: 'exact' })
         .order('popularity_score', { ascending: false })
-        .limit(1000); // Increased limit
+        .limit(2000); // Increased limit to show more FAQs
 
       if (error) {
         console.error('Error loading FAQs:', error);
@@ -79,21 +79,21 @@ const InteractiveVaultFAQ = () => {
   // Trigger Reddit scraping
   const triggerScraping = async () => {
     setScrapingStatus('scraping');
-    console.log('Starting Reddit scraping...');
+    console.log('Starting FAQ generation...');
     try {
       const { data, error } = await supabase.functions.invoke('scrape-reddit-faqs');
       if (error) {
         console.error('Scraping error:', error);
         throw error;
       }
-      console.log('Scraping completed:', data);
+      console.log('Generation completed:', data);
       setScrapingStatus('complete');
       // Reload FAQs after scraping
       setTimeout(() => {
         loadFAQs();
       }, 2000);
     } catch (error) {
-      console.error('Error scraping:', error);
+      console.error('Error generating FAQs:', error);
       setScrapingStatus('idle');
     }
   };
@@ -109,8 +109,8 @@ const InteractiveVaultFAQ = () => {
         faq.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     
-    // Show more FAQs based on view mode
-    const limit = viewMode === 'quick' ? 50 : viewMode === 'cards' ? 100 : 200;
+    // Show many more FAQs based on view mode
+    const limit = viewMode === 'quick' ? 200 : viewMode === 'cards' ? 300 : 500;
     console.log(`Filtered ${filtered.length} FAQs, showing ${Math.min(filtered.length, limit)}`);
     return filtered.slice(0, limit);
   }, [faqs, activeCategory, searchQuery, viewMode]);
@@ -144,24 +144,26 @@ const InteractiveVaultFAQ = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200/50 dark:border-blue-800/50 mb-6">
             <Sparkles className="w-4 h-4 text-blue-500 mr-2 animate-pulse" />
             <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              AI-Powered Community FAQ
+              AI-Powered Community FAQ Database
             </span>
           </div>
           
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            {faqs.length}+ Real Questions
+            {faqs.length.toLocaleString()}+ Password Questions
             <span className="block text-2xl font-normal mt-2 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              From Reddit Communities
+              Permanently Saved & Searchable
             </span>
           </h2>
           
           <p className={`text-lg max-w-3xl mx-auto mb-8 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            Curated from password management discussions across cybersecurity, privacy, and business subreddits. 
-            <span className="block mt-2 text-sm opacity-75">Updated daily with trending questions and pain points.</span>
+            Comprehensive database of password management questions from cybersecurity communities. 
+            <span className="block mt-2 text-sm opacity-75">
+              {faqs.length >= 1000 ? 'Database fully populated - no need to regenerate!' : 'Database ready for expansion'}
+            </span>
           </p>
 
-          {/* Scraping Status */}
-          {faqs.length < 100 && (
+          {/* Generation Button - only show if we need more data */}
+          {faqs.length < 1000 && (
             <div className="mb-8">
               <Button 
                 onClick={triggerScraping}
@@ -171,15 +173,26 @@ const InteractiveVaultFAQ = () => {
                 {scrapingStatus === 'scraping' ? (
                   <>
                     <Clock className="w-4 h-4 mr-2 animate-spin" />
-                    Scraping Reddit...
+                    Generating More FAQs...
                   </>
                 ) : (
                   <>
                     <TrendingUp className="w-4 h-4 mr-2" />
-                    Load More Questions ({faqs.length} loaded)
+                    Generate More Questions (Target: 5,000)
                   </>
                 )}
               </Button>
+            </div>
+          )}
+
+          {faqs.length >= 1000 && (
+            <div className="mb-8">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200/50 dark:border-green-800/50">
+                <Sparkles className="w-4 h-4 text-green-500 mr-2" />
+                <span className="text-sm font-medium text-green-700 dark:text-green-300">
+                  Database fully loaded with {faqs.length.toLocaleString()} questions!
+                </span>
+              </div>
             </div>
           )}
         </div>
@@ -219,7 +232,7 @@ const InteractiveVaultFAQ = () => {
             <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
             <Input
               type="text"
-              placeholder={`Search ${faqs.length}+ questions... (try 'family sharing', 'enterprise migration', '2FA')`}
+              placeholder={`Search ${faqs.length.toLocaleString()}+ questions... (try 'bitwarden vs 1password', 'enterprise setup', 'family sharing')`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={`pl-12 pr-4 py-4 rounded-xl text-lg ${
@@ -248,7 +261,7 @@ const InteractiveVaultFAQ = () => {
                     <Icon className="w-4 h-4" />
                     <span className="hidden sm:inline">{category.name}</span>
                     <Badge variant="secondary" className="ml-1 text-xs">
-                      {count}
+                      {count.toLocaleString()}
                     </Badge>
                   </TabsTrigger>
                 );
@@ -261,11 +274,11 @@ const InteractiveVaultFAQ = () => {
                 {filteredFAQs.length === 0 ? (
                   <div className="text-center py-12">
                     <p className={`text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                      No FAQs found for this category. 
-                      {faqs.length < 100 && (
+                      No FAQs found matching your search criteria.
+                      {faqs.length < 1000 && (
                         <span className="block mt-2">
                           <Button onClick={triggerScraping} variant="outline" className="mt-4">
-                            Load More Questions
+                            Generate More Questions
                           </Button>
                         </span>
                       )}
@@ -355,7 +368,7 @@ const InteractiveVaultFAQ = () => {
                                   className="inline-flex items-center text-sm text-blue-500 hover:text-blue-600"
                                 >
                                   <ExternalLink className="w-4 h-4 mr-1" />
-                                  View on Reddit
+                                  View Source
                                 </a>
                               )}
                             </CardContent>
@@ -421,8 +434,11 @@ const InteractiveVaultFAQ = () => {
         {/* Stats Footer */}
         <div className="mt-12 text-center">
           <div className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            Showing {filteredFAQs.length} of {faqs.length} questions • 
-            Last updated: {faqs[0]?.created_at ? new Date(faqs[0].created_at).toLocaleDateString() : 'Never'}
+            Showing {filteredFAQs.length.toLocaleString()} of {faqs.length.toLocaleString()} questions • 
+            Database last updated: {faqs[0]?.created_at ? new Date(faqs[0].created_at).toLocaleDateString() : 'Never'}
+            <div className="mt-2 text-xs opacity-75">
+              {faqs.length >= 1000 ? '✅ Database fully populated and saved permanently' : `Progress: ${faqs.length}/5000 target questions`}
+            </div>
           </div>
         </div>
       </div>
