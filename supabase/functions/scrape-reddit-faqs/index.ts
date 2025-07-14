@@ -198,15 +198,20 @@ Deno.serve(async (req) => {
     for (let i = 0; i < topFaqs.length; i += batchSize) {
       const batch = topFaqs.slice(i, i + batchSize);
       
-      const { error } = await supabaseClient
-        .from('vault_faqs')
-        .upsert(batch, { 
-          onConflict: 'question',
-          ignoreDuplicates: true 
-        });
+      try {
+        const { data, error } = await supabaseClient
+          .from('vault_faqs')
+          .insert(batch)
+          .select();
 
-      if (!error) {
-        inserted += batch.length;
+        if (!error && data) {
+          inserted += data.length;
+          console.log(`Successfully inserted batch of ${data.length} FAQs`);
+        } else if (error) {
+          console.error('Error inserting batch:', error);
+        }
+      } catch (batchError) {
+        console.error('Batch insert failed:', batchError);
       }
     }
 
