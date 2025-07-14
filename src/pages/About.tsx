@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Coffee, Heart, Globe, Lightbulb, Users, ArrowRight, Mail, MapPin, Compass } from "lucide-react";
+import { Shield, Coffee, Heart, Globe, Lightbulb, Users, ArrowRight, Mail, MapPin, Compass, Bot, Zap, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { resetScroll } from "@/utils/navigationHelpers";
 
@@ -148,12 +148,36 @@ const About = () => {
               </div>
             </section>
 
+            {/* AI-Powered Proactive Security */}
+            <section className="mb-20">
+              <Card className="bg-slate-800/40 border-slate-700/50 backdrop-blur-xl">
+                <CardContent className="p-12 text-center">
+                  <Bot className="h-16 w-16 text-slate-300 mx-auto mb-8" />
+                  <h2 className="text-4xl font-bold mb-8 text-slate-100">Empowered by AI, Focused on Humans</h2>
+                  <div className="max-w-4xl mx-auto space-y-6 text-lg text-slate-300 leading-relaxed">
+                    <p>
+                      Remember those 3 AM scrambles? We do too. That's exactly why we built AI into the core of FuteurSecure—not to replace human judgment, but to amplify it.
+                    </p>
+                    <p>
+                      <strong className="text-slate-100">Our AI doesn't just detect threats—it predicts them.</strong> While you're sleeping, our intelligent systems are learning your environment's patterns, identifying anomalies before they become incidents, and preparing actionable insights for when you wake up.
+                    </p>
+                    <p>
+                      No more reactive firefighting. No more being jolted awake at 3 AM because a server went down. Our AI-powered early warning systems help you stay ahead of problems, turning security from a reactive nightmare into a proactive advantage.
+                    </p>
+                    <p className="text-slate-200 font-medium">
+                      The future of security isn't about replacing humans with machines—it's about giving humans superhuman insights.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
             {/* Personal Story */}
             <section className="mb-20">
               <Card className="bg-slate-800/40 border-slate-700/50 backdrop-blur-xl">
                 <CardContent className="p-12 text-center">
-                  <Compass className="h-16 w-16 text-slate-300 mx-auto mb-8" />
-                  <h2 className="text-4xl font-bold mb-8 text-slate-100">Why we started this journey</h2>
+                  <Clock className="h-16 w-16 text-slate-300 mx-auto mb-8" />
+                  <h2 className="text-4xl font-bold mb-8 text-slate-100">From 3 AM Chaos to Proactive Peace</h2>
                   <div className="max-w-4xl mx-auto space-y-6 text-lg text-slate-300 leading-relaxed">
                     <p>
                       It was 3 AM on a Friday when our team lead got the call—another security incident, another scramble through five different dashboards, another night ruined by tools that seemed designed to make simple tasks complicated.
@@ -162,10 +186,10 @@ const About = () => {
                       That's when we realized something: <strong className="text-slate-100">the security industry had forgotten about the humans using these tools.</strong> We were so focused on features and compliance checkboxes that we forgot about the people pulling all-nighters to keep systems safe.
                     </p>
                     <p>
-                      So we started building. Not for enterprise procurement committees or feature comparison charts, but for the security engineer at 3 AM who just needs to know what's happening, fast.
+                      So we started building. Not for enterprise procurement committees or feature comparison charts, but for the security engineer at 3 AM who just needs to know what's happening, fast. And more importantly, for the security team that wants to prevent those 3 AM calls altogether.
                     </p>
                     <p className="text-slate-200 font-medium">
-                      FuteurSecure exists because security tools should enhance human intelligence, not replace it.
+                      FuteurSecure exists because security should be predictive, not reactive. Because sleep matters. Because prevention beats cure.
                     </p>
                   </div>
                 </CardContent>
