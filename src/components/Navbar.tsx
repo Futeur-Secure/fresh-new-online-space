@@ -11,11 +11,7 @@ const NavDropdown = ({ title, children, isOpen, toggleDropdown, isDark }) => {
   return (
     <div className="relative group">
       <button 
-        className={`flex items-center space-x-1 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-opacity-10 ${
-          isDark 
-            ? 'text-purple-200 hover:text-white hover:bg-purple-400' 
-            : 'text-slate-600 hover:text-slate-900 hover:bg-blue-500'
-        }`}
+        className="flex items-center space-x-1 transition-all duration-300 py-2 px-3 rounded-lg text-foreground hover:text-primary hover:bg-accent/10"
         onClick={(e) => {
           e.stopPropagation();
           toggleDropdown();
@@ -31,11 +27,7 @@ const NavDropdown = ({ title, children, isOpen, toggleDropdown, isDark }) => {
       
       {isOpen && (
         <div className="absolute top-full left-0 mt-3 min-w-[300px] z-50 animate-in fade-in-0 zoom-in-95 duration-200">
-          <div className={`backdrop-blur-xl border rounded-2xl shadow-2xl p-6 ${
-            isDark 
-              ? 'bg-slate-950/95 border-purple-500/30' 
-              : 'bg-white/95 border-blue-200/50'
-          }`}>
+        <div className="backdrop-blur-md bg-background/95 border border-border/50 rounded-2xl shadow-2xl p-6">
             {children}
           </div>
         </div>
@@ -92,11 +84,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 rounded-lg transition-all duration-300 ${
-        isDark 
-          ? 'bg-purple-900/50 text-yellow-400 hover:bg-purple-800/50' 
-          : 'bg-blue-100 text-slate-600 hover:bg-blue-200'
-      }`}
+      className="p-2 rounded-lg transition-all duration-300 bg-accent/50 text-foreground hover:bg-accent"
     >
       {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
     </button>
@@ -107,11 +95,7 @@ const ThemeToggle = () => {
 const MobileMenuButton = ({ isOpen, toggleMenu, isDark }) => {
   return (
     <button 
-      className={`lg:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 ${
-        isDark 
-          ? 'text-white hover:bg-purple-800/50' 
-          : 'text-slate-900 hover:bg-blue-100'
-      }`}
+      className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300 text-foreground hover:bg-accent"
       onClick={toggleMenu}
     >
       {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -163,21 +147,9 @@ const NavigationBar = () => {
 
 
   return (
-    <div className={`min-h-[80px] transition-colors duration-300 ${
-      isDark 
-        ? 'bg-slate-950' 
-        : 'bg-gradient-to-br from-slate-50 via-blue-50 to-white'
-    }`}>
+    <div className="min-h-[80px]">
       <header 
-        className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? `shadow-lg backdrop-blur-xl py-3 border-b ${
-                isDark 
-                  ? 'bg-slate-950/90 border-purple-500/20' 
-                  : 'bg-white/90 border-blue-200/30'
-              }` 
-            : `py-4 ${isDark ? 'bg-transparent' : 'bg-transparent'}`
-        }`}
+        className="fixed w-full top-0 left-0 z-50 transition-all duration-500 bg-background/80 backdrop-blur-md border-b border-border/50 py-3"
       >
       
 
@@ -194,9 +166,7 @@ const NavigationBar = () => {
           }`}
         />
       </div>
-      <span className={`text-xl font-bold transition-colors duration-300 ${
-        isDark ? 'text-white' : 'text-slate-900'
-      }`}>
+      <span className="text-xl font-bold transition-colors duration-300 text-foreground">
         Futeur Secure
       </span>
     </Link>
@@ -233,32 +203,9 @@ const NavigationBar = () => {
       </NavDropdown>
     </div>
 
-    <div className="dropdown-trigger" onClick={(e) => e.stopPropagation()}>
-      <NavDropdown 
-        title="Pricing" 
-        isOpen={openDropdown === 'pricing'}
-        toggleDropdown={() => toggleDropdown('pricing')}
-        isDark={isDark}
-      >
-        <div className="space-y-2 dropdown-content">
-          <Link to="/pricing" onClick={() => setOpenDropdown(null)}>
-            <ProductCard 
-              icon={<DollarSign className="w-4 h-4" />} 
-              title="FuteurVault Pricing" 
-              description="Compare plans and find the perfect security solution for your team size and needs."
-              isDark={isDark}
-            />
-          </Link>
-        </div>
-      </NavDropdown>
-    </div>
 
     <button
-      className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-opacity-10 ${
-        isDark 
-          ? 'text-purple-200 hover:text-white hover:bg-purple-400' 
-          : 'text-slate-600 hover:text-slate-900 hover:bg-blue-500'
-      }`}
+      className="px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 text-foreground hover:text-primary hover:bg-accent/10"
       onClick={() => {
         setOpenDropdown(null);
         scrollOrNavigate("features", "/features");
@@ -268,11 +215,7 @@ const NavigationBar = () => {
     </button>
 
     <button
-      className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-opacity-10 ${
-        isDark 
-          ? 'text-purple-200 hover:text-white hover:bg-purple-400' 
-          : 'text-slate-600 hover:text-slate-900 hover:bg-blue-500'
-      }`}
+      className="px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 text-foreground hover:text-primary hover:bg-accent/10"
       onClick={() => {
         setOpenDropdown(null);
         scrollOrNavigate("solutions", "/solutions");
@@ -282,11 +225,7 @@ const NavigationBar = () => {
     </button>
 
     <button
-      className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-opacity-10 ${
-        isDark 
-          ? 'text-purple-200 hover:text-white hover:bg-purple-400' 
-          : 'text-slate-600 hover:text-slate-900 hover:bg-blue-500'
-      }`}
+      className="px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 text-foreground hover:text-primary hover:bg-accent/10"
       onClick={() => {
         scrollOrNavigate("contact", "/contact");
         setOpenDropdown(null);
@@ -312,11 +251,7 @@ const NavigationBar = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className={`lg:hidden border-t backdrop-blur-xl py-6 px-6 animate-in slide-in-from-top-2 duration-300 ${
-            isDark 
-              ? 'bg-slate-950/95 border-purple-500/30' 
-              : 'bg-white/95 border-blue-200/30'
-          }`}>
+          <div className="lg:hidden border-t border-border/50 backdrop-blur-md bg-background/95 py-6 px-6 animate-in slide-in-from-top-2 duration-300">
             <nav className="flex flex-col space-y-4">
               <button 
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)} 
@@ -358,35 +293,6 @@ const NavigationBar = () => {
                 </div>
               )}
 
-              <button 
-                onClick={() => setMobilePricingOpen(!mobilePricingOpen)} 
-                className={`flex justify-between items-center w-full py-3 px-4 text-left font-medium rounded-lg transition-colors duration-300 ${
-                  isDark 
-                    ? 'text-white hover:bg-purple-800/50' 
-                    : 'text-slate-900 hover:bg-blue-100'
-                }`}
-              >
-                Pricing
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobilePricingOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {mobilePricingOpen && (
-                <div className={`ml-4 pl-4 border-l-2 flex flex-col space-y-3 animate-in slide-in-from-left-1 duration-200 ${
-                  isDark 
-                    ? 'border-purple-500' 
-                    : 'border-blue-500'
-                }`}>
-                  <Link to="/pricing" onClick={() => setMobileMenuOpen(false)}>
-                    <button className={`w-full text-left py-2 px-3 rounded-lg transition-colors duration-300 ${
-                      isDark 
-                        ? 'text-purple-200 hover:text-white hover:bg-purple-800/50' 
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-blue-100'
-                    }`}>
-                      FuteurVault Pricing
-                    </button>
-                  </Link>
-                </div>
-              )}
 
               
               <button
