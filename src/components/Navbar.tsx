@@ -27,7 +27,7 @@ const NavDropdown = ({ title, children, isOpen, toggleDropdown, isDark }) => {
       
       {isOpen && (
         <div className="absolute top-full left-0 mt-3 min-w-[300px] z-50 animate-in fade-in-0 zoom-in-95 duration-200">
-        <div className="backdrop-blur-md bg-background/95 border border-border/50 rounded-2xl shadow-2xl p-6">
+        <div className="backdrop-blur-md bg-card/98 border border-border rounded-2xl shadow-2xl p-6">
             {children}
           </div>
         </div>
@@ -39,36 +39,22 @@ const NavDropdown = ({ title, children, isOpen, toggleDropdown, isDark }) => {
 // Product card for dropdown
 const ProductCard = ({ icon, title, description, isNew = false, isDark }) => {
   return (
-    <div className={`flex items-start space-x-4 p-4 rounded-xl transition-all duration-300 cursor-pointer group ${
-      isDark 
-        ? 'hover:bg-purple-900/30 hover:scale-[1.02]' 
-        : 'hover:bg-blue-50 hover:scale-[1.02]'
-    }`}>
-      <div className={`mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 ${
-        isDark 
-          ? 'bg-gradient-to-br from-purple-500 to-pink-500' 
-          : 'bg-gradient-to-br from-blue-500 to-purple-600'
-      }`}>
+    <div className="flex items-start space-x-4 p-4 rounded-xl transition-all duration-300 cursor-pointer group hover:bg-accent/50 hover:scale-[1.02]">
+      <div className="mt-1 flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 bg-primary text-primary-foreground">
         {icon}
       </div>
       <div className="flex-1">
         <div className="flex items-center">
-          <h4 className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+          <h4 className="font-semibold text-card-foreground">
             {title}
           </h4>
           {isNew && (
-            <span className={`ml-2 px-2 py-1 text-xs font-medium text-white rounded-full shadow-sm ${
-              isDark 
-                ? 'bg-gradient-to-r from-purple-500 to-pink-500' 
-                : 'bg-gradient-to-r from-blue-500 to-purple-600'
-            }`}>
+            <span className="ml-2 px-2 py-1 text-xs font-medium text-primary-foreground bg-primary rounded-full shadow-sm">
               NEW
             </span>
           )}
         </div>
-        <p className={`mt-1 text-sm leading-relaxed ${
-          isDark ? 'text-purple-200' : 'text-slate-600'
-        }`}>
+        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
           {description}
         </p>
       </div>
