@@ -69,10 +69,6 @@ const Trust = () => {
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">{title}</h3>
         <p className="text-gray-600 leading-relaxed">{description}</p>
-        <div className="mt-4 flex items-center text-blue-600 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-          <span className="text-sm font-medium">Learn more</span>
-          <ChevronRight className="h-4 w-4 ml-1" />
-        </div>
       </div>
     </div>
   );
