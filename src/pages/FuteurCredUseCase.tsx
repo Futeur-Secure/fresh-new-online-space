@@ -773,32 +773,100 @@ const FuteurCredUseCase = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-3xl p-12 border border-primary/20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              This is how business credit should work.
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Secure. Private. Yours.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/get-started"
-                className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-300 hover:scale-105 font-semibold"
-              >
-                Get Started Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/book-demo"
-                className="inline-flex items-center px-8 py-4 border border-border bg-background/50 backdrop-blur-sm rounded-xl hover:bg-accent transition-all duration-300"
-              >
-                Book a Demo
-              </Link>
+      {/* Powerful CTA Section */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        {/* Dramatic Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+        
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-500/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan-400/30 rounded-full blur-xl animate-ping"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          {/* Main Message */}
+          <div className="mb-12">
+            <div className="inline-flex items-center px-4 py-2 bg-emerald-500/20 border border-emerald-400/30 rounded-full mb-8">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
+              <span className="text-emerald-300 font-medium">THE FUTURE IS NOW</span>
             </div>
+            
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
+                Your Business.
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-cyan-200 via-blue-200 to-white bg-clip-text text-transparent">
+                Your Rules.
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-emerald-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+                Your Victory.
+              </span>
+            </h2>
+            
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-6">
+                While your competitors leak data and sell customer info, you'll build credit with 
+                <span className="font-bold text-white"> military-grade protection</span>.
+              </p>
+              <p className="text-lg text-slate-400">
+                Most business owners don't know their personal data is being harvested during "verification." 
+                <span className="font-semibold text-cyan-300"> You're about to be different</span>.
+              </p>
+            </div>
+          </div>
+
+          {/* Social Proof Stats */}
+          <div className="grid grid-cols-3 gap-8 mb-16 max-w-3xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-emerald-400 mb-2">0</div>
+              <div className="text-sm text-slate-400 uppercase tracking-wide">Data Breaches Ever</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">∞</div>
+              <div className="text-sm text-slate-400 uppercase tracking-wide">Years Protected</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2">1st</div>
+              <div className="text-sm text-slate-400 uppercase tracking-wide">In Quantum Security</div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+            <Link
+              to="/get-started"
+              className="group relative overflow-hidden bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-emerald-500/25"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative z-10 flex items-center">
+                Join the Revolution
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+            
+            <Link
+              to="/book-demo"
+              className="group border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-12 py-5 rounded-2xl font-semibold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+            >
+              See How It Works
+            </Link>
+          </div>
+
+          {/* Urgency Message */}
+          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-400/30 rounded-2xl p-6 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center mb-3">
+              <Clock className="h-5 w-5 text-orange-400 mr-2" />
+              <span className="text-orange-300 font-semibold uppercase tracking-wide text-sm">Limited Time</span>
+            </div>
+            <p className="text-white text-lg font-medium">
+              While others suffer breaches, early adopters are building unbreakable credit foundations. 
+              <span className="text-orange-300 font-bold">Don't be the last to protect what matters</span>.
+            </p>
           </div>
         </div>
       </section>
