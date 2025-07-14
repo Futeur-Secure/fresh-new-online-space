@@ -483,60 +483,152 @@ const FuteurCredUseCase = () => {
         </div>
       </section>
 
-      {/* Animated Architecture Diagram */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
+      {/* Data Protection Pipeline - Glass Theme */}
+      <section className="py-20 px-6 relative overflow-hidden">
+        {/* Background with glass effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50"></div>
+        <div className="absolute inset-0 backdrop-blur-sm bg-white/30"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
               Data Protection Pipeline
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               See how your sensitive business data flows through our quantum-ready security architecture
             </p>
           </div>
 
+          {/* Main Pipeline Flow */}
           <div className="relative">
-            <img 
-              src={pipelineImage} 
-              alt="FuteurCred Security Pipeline" 
-              className="w-full rounded-2xl shadow-2xl"
-            />
-            
-            {/* Pipeline Steps Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-6xl px-8">
-                {[
-                  { title: "User EIN + Docs", subtitle: "Input Gateway", icon: User },
-                  { title: "Vault Input Gateway", subtitle: "No Data Shared", icon: Shield },
-                  { title: "AES-256 Encrypted", subtitle: "Zero-Knowledge Vault", icon: Lock },
-                  { title: "LUMIQ™ Algorithm", subtitle: "Business Insights", icon: TrendingUp }
-                ].map((step, index) => (
-                  <div key={index} className="text-center">
-                    <div className="bg-background/90 backdrop-blur-sm border border-border rounded-xl p-4 mb-4 hover:shadow-lg transition-all duration-300">
-                      <step.icon className="h-8 w-8 text-primary mx-auto mb-2" />
-                      <h3 className="font-bold text-sm mb-1">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground">{step.subtitle}</p>
+            {/* Step 1: User EIN + Docs */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative bg-white/40 backdrop-blur-md border border-white/50 rounded-2xl p-8 hover:bg-white/50 transition-all duration-300 shadow-xl">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative">
+                      <FileText className="h-12 w-12 text-violet-600 mb-2" />
+                      <Lock className="h-6 w-6 text-purple-600 absolute -bottom-1 -right-1 bg-white rounded-full p-1" />
                     </div>
-                    {index < 3 && (
-                      <ArrowRight className="h-6 w-6 text-primary mx-auto hidden md:block" />
-                    )}
                   </div>
-                ))}
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">User EIN + Docs</h3>
+                  <p className="text-sm text-slate-600 text-center">Secure document input with immediate encryption</p>
+                </div>
+                
+                {/* Arrow */}
+                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                  <div className="flex items-center">
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400"></div>
+                    <ArrowRight className="h-6 w-6 text-purple-500 ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 2: Vault Input Gateway */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative bg-white/40 backdrop-blur-md border border-white/50 rounded-2xl p-8 hover:bg-white/50 transition-all duration-300 shadow-xl">
+                  <div className="flex items-center justify-center mb-6">
+                    <Shield className="h-12 w-12 text-purple-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">Vault Input Gateway</h3>
+                  <p className="text-sm text-slate-600 text-center">Zero-knowledge processing - we never see your data</p>
+                </div>
+                
+                {/* Arrow */}
+                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                  <div className="flex items-center">
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-purple-400 to-indigo-400"></div>
+                    <ArrowRight className="h-6 w-6 text-indigo-500 ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 3: AES-256 Encrypted Vault */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative bg-white/40 backdrop-blur-md border border-white/50 rounded-2xl p-8 hover:bg-white/50 transition-all duration-300 shadow-xl">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative">
+                      <Database className="h-12 w-12 text-indigo-600" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-6 h-6 bg-amber-400 rounded border-2 border-indigo-600 flex items-center justify-center">
+                          <Lock className="h-3 w-3 text-indigo-900" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">AES-256 Encrypted</h3>
+                  <p className="text-sm text-slate-600 text-center">Zero-Knowledge Vault storage</p>
+                </div>
+                
+                {/* Arrow */}
+                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                  <div className="flex items-center">
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-indigo-400 to-blue-400"></div>
+                    <ArrowRight className="h-6 w-6 text-blue-500 ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 4: LUMIQ Algorithm */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative bg-white/40 backdrop-blur-md border border-white/50 rounded-2xl p-8 hover:bg-white/50 transition-all duration-300 shadow-xl">
+                  <div className="flex items-center justify-center mb-6">
+                    <Cpu className="h-12 w-12 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">LUMIQ™ Algorithm</h3>
+                  <p className="text-sm text-slate-600 text-center">AI analytics on encrypted data</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 5: Business Insights Returned (Below) */}
+            <div className="flex justify-center">
+              <div className="relative group max-w-md">
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative bg-white/40 backdrop-blur-md border border-white/50 rounded-2xl p-8 hover:bg-white/50 transition-all duration-300 shadow-xl">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative">
+                      <TrendingUp className="h-12 w-12 text-emerald-600" />
+                      <div className="absolute -bottom-2 -right-2">
+                        <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center">
+                          <CheckCircle className="h-4 w-4 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">Business Insights Returned</h3>
+                  <p className="text-sm text-slate-600 text-center">Actionable credit intelligence while your data stays encrypted</p>
+                </div>
+                
+                {/* Upward Arrow */}
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                  <div className="flex flex-col items-center">
+                    <div className="w-0.5 h-8 bg-gradient-to-t from-emerald-400 to-blue-400"></div>
+                    <div className="w-3 h-3 bg-emerald-400 rotate-45 transform -translate-y-1"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Security Labels */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+          {/* Security Guarantees */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
             {[
-              "No Data Shared",
-              "Encrypted at Rest & in Transit", 
-              "Quantum-Resistant Layer",
-              "User-Owned Keys"
-            ].map((label, index) => (
-              <div key={index} className="text-center p-4 bg-card border border-border rounded-xl">
-                <CheckCircle className="h-6 w-6 text-green-500 mx-auto mb-2" />
-                <p className="text-sm font-medium">{label}</p>
+              { label: "No Data Shared", icon: Eye, color: "from-violet-500 to-purple-500" },
+              { label: "Encrypted at Rest & in Transit", icon: Lock, color: "from-purple-500 to-indigo-500" }, 
+              { label: "Quantum-Resistant Layer", icon: Zap, color: "from-indigo-500 to-blue-500" },
+              { label: "User-Owned Keys", icon: Key, color: "from-blue-500 to-cyan-500" }
+            ].map((item, index) => (
+              <div key={index} className="relative group">
+                <div className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity`}></div>
+                <div className="relative text-center p-4 bg-white/30 backdrop-blur-md border border-white/50 rounded-xl hover:bg-white/40 transition-all duration-300">
+                  <item.icon className="h-6 w-6 text-slate-700 mx-auto mb-2" />
+                  <p className="text-sm font-medium text-slate-800">{item.label}</p>
+                </div>
               </div>
             ))}
           </div>
