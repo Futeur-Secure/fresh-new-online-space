@@ -674,36 +674,96 @@ const FuteurCredUseCase = () => {
         </div>
       </section>
 
-      {/* What We Protect Section */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      {/* What We Protect Section - Apple-like Design */}
+      <section className="py-24 px-6 bg-gradient-to-b from-white to-slate-50/50 relative overflow-hidden">
+        {/* Subtle background elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-6">
               What We Protect
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Your most sensitive business data, secured with military-grade encryption
             </p>
           </div>
 
-          <div className="relative mb-12">
-            <img 
-              src={businessProtectionImage} 
-              alt="Business Data Protection" 
-              className="w-full rounded-2xl shadow-2xl opacity-80"
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Interactive Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1 bg-slate-200/50 rounded-3xl p-1">
             {protectedData.map((item, index) => (
-              <div key={index} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="h-6 w-6 text-primary" />
+              <div 
+                key={index} 
+                className="group relative bg-white rounded-2xl p-8 hover:bg-slate-50 transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-xl"
+                onMouseEnter={(e) => setHoveredFeature(index)}
+                onMouseLeave={() => setHoveredFeature(null)}
+              >
+                {/* Hover background effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  {/* Icon Container */}
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center group-hover:from-blue-100 group-hover:to-indigo-100 transition-all duration-500 group-hover:scale-110">
+                      <item.icon className="h-8 w-8 text-slate-600 group-hover:text-blue-600 transition-colors duration-500" />
+                    </div>
+                    
+                    {/* Animated lock indicator */}
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                      <Lock className="h-3 w-3 text-white" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-semibold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                    {item.description}
+                  </p>
+
+                  {/* Security Badge */}
+                  <div className="mt-6 inline-flex items-center px-3 py-1.5 bg-emerald-50 rounded-full border border-emerald-200 group-hover:bg-emerald-100 transition-colors duration-300">
+                    <Shield className="h-3 w-3 text-emerald-600 mr-1.5" />
+                    <span className="text-xs font-medium text-emerald-700">256-bit Encrypted</span>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+
+                {/* Subtle border highlight on hover */}
+                <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-blue-200/50 transition-colors duration-500"></div>
               </div>
             ))}
+          </div>
+
+          {/* Interactive Security Stats */}
+          <div className="mt-20 bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/50 p-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { label: "Zero Breaches", value: "0", suffix: "", color: "text-emerald-600" },
+                { label: "Encryption Strength", value: "256", suffix: "-bit", color: "text-blue-600" },
+                { label: "Detection Speed", value: "<1", suffix: "ms", color: "text-purple-600" },
+                { label: "Uptime SLA", value: "99.9", suffix: "%", color: "text-orange-600" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center group cursor-pointer">
+                  <div className={`text-3xl md:text-4xl font-bold ${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                    {stat.value}<span className="text-lg">{stat.suffix}</span>
+                  </div>
+                  <div className="text-sm text-slate-600 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Message */}
+          <div className="text-center mt-16">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Every piece of data is <span className="font-semibold text-slate-900">encrypted</span>, 
+              <span className="font-semibold text-slate-900"> monitored</span>, and 
+              <span className="font-semibold text-slate-900"> protected</span> under our zero-knowledge architecture.
+            </p>
           </div>
         </div>
       </section>
