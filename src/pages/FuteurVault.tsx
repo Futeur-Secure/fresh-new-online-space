@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Play, Shield, Database, Rocket, Check, Star, ArrowUpRight, ChevronDown, Zap, Globe, Lock, Brain, Layers, Award, Users, Cpu, Cloud, FileText, BarChart3, Settings, Briefcase, Key, TrendingUp } from "lucide-react";
+import { ArrowRight, Play, Shield, Database, Rocket, Check, Star, ArrowUpRight, ChevronDown, Zap, Globe, Lock, Brain, Layers, Award, Users, Cpu, Cloud, FileText, BarChart3, Settings, Briefcase, Key, TrendingUp, Smartphone, MonitorSpeaker, TabletSmartphone, Chrome, Search, Timer, Fingerprint, HardDrive, Eye, AlertTriangle, RefreshCw } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { resetScroll } from "@/utils/navigationHelpers";
 import { useTheme } from "@/context/ThemeContext";
@@ -23,10 +23,10 @@ const FuteurVault = () => {
   ];
 
   const stats = [
-    { value: '500+', label: 'Enterprise Clients', icon: Users },
-    { value: '99.9%', label: 'Uptime SLA', icon: TrendingUp },
-    { value: 'SOC 2', label: 'Type II Certified', icon: Award },
-    { value: '24/7', label: 'Expert Support', icon: Shield }
+    { value: '50M+', label: 'Passwords Protected', icon: Lock },
+    { value: '150+', label: 'Platform Integrations', icon: Globe },
+    { value: '0', label: 'Data Breaches Ever', icon: Shield },
+    { value: '< 1s', label: 'Password Autofill', icon: Zap }
   ];
 
   // Load Lottie animation
@@ -98,21 +98,21 @@ const FuteurVault = () => {
 
   const features = [
     {
-      icon: Brain,
-      title: "AI-Powered Security",
-      description: "Advanced threat detection with machine learning models trained on enterprise attack patterns.",
-      accent: "from-amber-400/20 to-orange-500/20"
-    },
-    {
       icon: Shield,
-      title: "Zero-Trust Architecture",
-      description: "Built-in identity verification and encrypted data flows for maximum security posture.",
+      title: "Military-Grade Encryption & HSM Integration",
+      description: "AES-256 encryption with Hardware Security Module support and quantum-resistant algorithms for future-proof protection.",
       accent: "from-emerald-400/20 to-teal-500/20"
     },
     {
-      icon: Layers,
-      title: "Infrastructure as Code",
-      description: "Deploy secure, scalable infrastructure with version-controlled configuration management.",
+      icon: Brain,
+      title: "AI-Powered Breach Detection",
+      description: "Real-time monitoring of 15+ billion breach records with instant alerts and automated password rotation for compromised credentials.",
+      accent: "from-amber-400/20 to-orange-500/20"
+    },
+    {
+      icon: Globe,
+      title: "Universal Browser & App Integration",
+      description: "Seamless autofill across Chrome, Firefox, Safari, Edge extensions plus native iOS/Android apps with biometric unlock.",
       accent: "from-violet-400/20 to-purple-500/20"
     }
   ];
@@ -192,15 +192,15 @@ const FuteurVault = () => {
               {/* Headline */}
               <div className="space-y-6">
                 <h1 className={`text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight ${isDark ? 'text-white' : 'text-slate-900'} break-words`}>
-                   AI Security
+                  Enterprise Password
                   <br />
                   <span className={`bg-gradient-to-r ${isDark ? 'from-slate-200 to-slate-400' : 'from-slate-600 to-slate-800'} bg-clip-text text-transparent font-normal`}>
-                    Infrastructure Platform
+                    Management Platform
                   </span>
                 </h1>
 
                 <p className={`text-base md:text-lg leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                  Secure, intelligent infrastructure management with AI-powered threat detection, zero-trust architecture, and enterprise-grade compliance built for scale.
+                  Advanced password security featuring breach monitoring, biometric authentication, browser extensions across all platforms, and quantum-resistant encryption. Trusted by 500+ enterprises with 99.9% uptime SLA.
                 </p>
               </div>
 
@@ -450,6 +450,170 @@ const FuteurVault = () => {
         </div>
       </section>
 
+      {/* Security Certifications Banner */}
+      <section className={`py-12 px-6 ${isDark ? 'bg-slate-900/50' : 'bg-white'} border-b ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex justify-center items-center space-x-12 opacity-60">
+            {certifications.map((cert, i) => (
+              <div key={i} className="flex items-center space-x-3">
+                <cert.icon className={`w-6 h-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} />
+                <div>
+                  <div className={`font-semibold text-sm ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{cert.name}</div>
+                  <div className="text-xs text-emerald-600">{cert.status}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Browser Extensions Showcase */}
+      <section className={`py-20 px-6 ${isDark ? 'bg-gradient-to-r from-blue-950/20 to-indigo-950/20' : 'bg-gradient-to-r from-blue-50/50 to-indigo-50/50'}`}>
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="mb-16">
+            <h2 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>Available Everywhere You Work</h2>
+            <p className={`text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>One-click installation. Instant password autofill. Works offline.</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            {[
+              { name: 'Chrome', icon: Globe, users: '2B+ users', color: 'from-blue-500 to-blue-600' },
+              { name: 'Safari', icon: Search, users: '1B+ users', color: 'from-blue-400 to-blue-500' },
+              { name: 'Firefox', icon: Globe, users: '200M+ users', color: 'from-orange-500 to-red-500' },
+              { name: 'Edge', icon: Search, users: '600M+ users', color: 'from-blue-600 to-purple-600' }
+            ].map((browser, i) => (
+              <div key={i} className={`p-6 rounded-xl shadow-sm transition-all duration-300 hover:scale-105 ${isDark ? 'bg-slate-800/50 hover:bg-slate-800/70' : 'bg-white hover:bg-slate-50'}`}>
+                <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${browser.color} flex items-center justify-center`}>
+                  <browser.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{browser.name}</h3>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{browser.users}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {[
+              { icon: Smartphone, title: 'Mobile Apps', desc: 'Native iOS & Android apps with biometric unlock' },
+              { icon: MonitorSpeaker, title: 'Desktop Apps', desc: 'Windows, macOS & Linux applications' },
+              { icon: Timer, title: 'Instant Sync', desc: 'Real-time synchronization across all devices' }
+            ].map((feature, i) => (
+              <div key={i} className="flex items-start space-x-4">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${isDark ? 'bg-blue-900/30 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
+                  <feature.icon className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <h3 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{feature.title}</h3>
+                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Competitive Comparison Table */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>Why Choose FuteurVault?</h2>
+            <p className={`text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>See how we compare to other password managers</p>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <table className={`w-full border rounded-lg ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
+              <thead className={`${isDark ? 'bg-slate-800/50' : 'bg-slate-50'}`}>
+                <tr>
+                  <th className={`text-left p-4 font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>Feature</th>
+                  <th className={`text-center p-4 font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>FuteurVault</th>
+                  <th className={`text-center p-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>LastPass</th>
+                  <th className={`text-center p-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>1Password</th>
+                  <th className={`text-center p-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Dashlane</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { feature: 'Zero-Knowledge Architecture', us: '✅', comp1: '❌', comp2: '✅', comp3: '✅' },
+                  { feature: 'Quantum-Resistant Encryption', us: '✅', comp1: '❌', comp2: '❌', comp3: '❌' },
+                  { feature: 'HSM Integration', us: '✅', comp1: '❌', comp2: '❌', comp3: '❌' },
+                  { feature: 'Real-time Breach Monitoring', us: '✅', comp1: '✅', comp2: '✅', comp3: '✅' },
+                  { feature: 'Biometric Authentication', us: '✅', comp1: '✅', comp2: '✅', comp3: '✅' },
+                  { feature: 'Hardware Security Keys', us: '✅', comp1: '✅', comp2: '✅', comp3: '❌' },
+                  { feature: 'Unlimited Device Sync', us: '✅', comp1: '❌', comp2: '✅', comp3: '✅' },
+                  { feature: 'API Access & Automation', us: '✅', comp1: '❌', comp2: '✅', comp3: '❌' }
+                ].map((row, i) => (
+                  <tr key={i} className={i % 2 === 0 ? (isDark ? 'bg-slate-900/30' : 'bg-white') : (isDark ? 'bg-slate-800/30' : 'bg-slate-50')}>
+                    <td className={`p-4 font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>{row.feature}</td>
+                    <td className="text-center p-4 text-emerald-600 font-bold text-xl">{row.us}</td>
+                    <td className={`text-center p-4 text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{row.comp1}</td>
+                    <td className={`text-center p-4 text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{row.comp2}</td>
+                    <td className={`text-center p-4 text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{row.comp3}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Features Showcase */}
+      <section className={`py-20 px-6 ${isDark ? 'bg-slate-900/30' : 'bg-slate-50'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>Enterprise-Grade Features</h2>
+            <p className={`text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Everything your organization needs for secure password management</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Users,
+                title: "Advanced Team Management",
+                features: ["Unlimited team members", "Role-based permissions", "SSO with SAML/LDAP", "Automated user provisioning"]
+              },
+              {
+                icon: Shield,
+                title: "Compliance & Security",
+                features: ["SOC 2 Type II certified", "GDPR compliant", "99.9% uptime SLA", "24/7 security monitoring"]
+              },
+              {
+                icon: BarChart3,
+                title: "Analytics & Reporting",
+                features: ["Security dashboards", "Compliance reports", "Usage analytics", "Audit trail exports"]
+              },
+              {
+                icon: Zap,
+                title: "Automation & APIs",
+                features: ["Password rotation", "Workflow automation", "REST/GraphQL APIs", "Webhook notifications"]
+              },
+              {
+                icon: Globe,
+                title: "Global Deployment",
+                features: ["Multi-region support", "Data residency controls", "CDN delivery", "Disaster recovery"]
+              },
+              {
+                icon: Award,
+                title: "Premium Support",
+                features: ["Dedicated account manager", "Priority phone support", "Implementation assistance", "Custom training"]
+              }
+            ].map((item, i) => (
+              <div key={i} className={`rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-8 ${isDark ? 'bg-slate-800/50 hover:bg-slate-800/70' : 'bg-white hover:bg-slate-50'}`}>
+                <item.icon className={`w-12 h-12 mb-6 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
+                <h3 className={`text-xl font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+                <ul className="space-y-2">
+                  {item.features.map((feature, j) => (
+                    <li key={j} className={`flex items-center ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                      <Check className="w-4 h-4 text-emerald-500 mr-3 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -575,11 +739,11 @@ const FuteurVault = () => {
                 </div>
 
                 <h2 className={`text-4xl md:text-5xl font-light leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  Collaborate securely without compromising on productivity
+                  Share passwords securely across your entire team
                 </h2>
 
                 <p className={`text-lg leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Enable seamless collaboration while maintaining the highest security standards across your organization.
+                  Enable secure password sharing and team collaboration while maintaining the highest security standards and zero-knowledge encryption.
                 </p>
               </div>
 
@@ -590,10 +754,10 @@ const FuteurVault = () => {
                   </div>
                   <div>
                     <h3 className={`text-lg font-medium mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      Secure credential sharing
+                      Secure password sharing with granular permissions
                     </h3>
                     <p className={`text-base leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                      Share sensitive credentials, API keys, and confidential data with team members through encrypted channels and time-limited access.
+                      Share passwords, API keys, and sensitive credentials with role-based access controls, approval workflows, and time-limited sharing for maximum security.
                     </p>
                   </div>
                 </div>
@@ -676,11 +840,11 @@ const FuteurVault = () => {
                 </div>
 
                 <h2 className={`text-4xl md:text-5xl font-light leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  Stay ahead of threats with intelligent security automation
+                  Advanced password security with AI-powered threat detection
                 </h2>
 
                 <p className={`text-lg leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Proactive threat detection and automated security responses keep your organization protected 24/7.
+                  Proactive breach monitoring, automated password rotation, and intelligent security analysis keep your passwords protected 24/7.
                 </p>
               </div>
 
@@ -691,10 +855,10 @@ const FuteurVault = () => {
                   </div>
                   <div>
                     <h3 className={`text-lg font-medium mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      Real-time threat intelligence
+                      Real-time password breach monitoring
                     </h3>
                     <p className={`text-base leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                      Continuous monitoring of global threat databases ensures immediate alerts when your organization's credentials are compromised.
+                      Continuous monitoring of 15+ billion breached passwords ensures immediate alerts and automatic password rotation when your credentials are compromised.
                     </p>
                   </div>
                 </div>
@@ -705,10 +869,10 @@ const FuteurVault = () => {
                   </div>
                   <div>
                     <h3 className={`text-lg font-medium mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      Automated security analysis
+                      Automated password health analysis
                     </h3>
                     <p className={`text-base leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                      AI-powered security assessments identify vulnerabilities and provide actionable recommendations for strengthening your security posture.
+                      AI-powered password analysis identifies weak, reused, and compromised passwords while providing actionable recommendations for strengthening your security.
                     </p>
                   </div>
                 </div>
