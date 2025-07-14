@@ -1,1 +1,4 @@
 project_id = "ngdpaxlomzxsuyaxbfou"
+
+[functions.scrape-reddit-faqs]
+verify_jwt = false

@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      vault_faqs: {
+        Row: {
+          answer: string
+          category: string
+          created_at: string
+          id: string
+          is_verified: boolean | null
+          popularity_score: number | null
+          question: string
+          reddit_source: string | null
+          tags: string[] | null
+          updated_at: string
+          upvotes: number | null
+        }
+        Insert: {
+          answer: string
+          category: string
+          created_at?: string
+          id?: string
+          is_verified?: boolean | null
+          popularity_score?: number | null
+          question: string
+          reddit_source?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          upvotes?: number | null
+        }
+        Update: {
+          answer?: string
+          category?: string
+          created_at?: string
+          id?: string
+          is_verified?: boolean | null
+          popularity_score?: number | null
+          question?: string
+          reddit_source?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          upvotes?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

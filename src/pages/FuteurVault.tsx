@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import React from "react";
 import Waitlist from "@/components/WaitlistForm";
 import PricingSection from "@/components/Pricing";
-import VaultFAQ from "@/components/vault/VaultFAQ";
+import InteractiveVaultFAQ from "@/components/vault/InteractiveVaultFAQ";
 
 const FuteurVault = () => {
   const { theme } = useTheme();
@@ -969,7 +969,7 @@ const FuteurVault = () => {
         </div>
       </section>
 
-      <VaultFAQ />
+      <InteractiveVaultFAQ />
 
       <Footer />
     </div>
