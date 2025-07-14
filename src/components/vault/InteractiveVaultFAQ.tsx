@@ -215,175 +215,175 @@ const InteractiveVaultFAQ = () => {
           </div>
         </div>
 
-        {/* Category Filters */}
+        {/* Category Filters using Tabs */}
         <div className="mb-8">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              const isActive = activeCategory === category.id;
-              const count = faqs.filter(faq => category.id === 'all' || faq.category === category.id).length;
-              
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
-                    isActive
-                      ? `bg-${category.color}-500 text-white shadow-lg`
-                      : isDark
-                        ? 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700'
-                        : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
-                  }`}
-                >
-                  <Icon className="w-4 h-4 mr-2" />
-                  {category.name}
-                  <Badge variant="secondary" className="ml-2">
-                    {count}
-                  </Badge>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* FAQ Content */}
-        {viewMode === 'quick' && (
-          <div className="grid gap-3">
-            {filteredFAQs.slice(0, 10).map((faq) => (
-              <Card key={faq.id} className={`cursor-pointer transition-all duration-200 hover:shadow-lg ${
-                isDark ? 'bg-slate-900/50 border-slate-800 hover:border-slate-700' : 'bg-white hover:border-slate-300'
-              }`}>
-                <CardContent className="p-4">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="outline" className="text-xs">
-                          {faq.category}
-                        </Badge>
-                        <div className="flex items-center text-xs text-slate-500">
-                          <ThumbsUp className="w-3 h-3 mr-1" />
-                          {faq.upvotes}
-                        </div>
-                        {faq.is_verified && (
-                          <Badge className="bg-green-500 text-white text-xs">Verified</Badge>
-                        )}
-                      </div>
-                      <h3 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        {faq.question}
-                      </h3>
-                      <p className={`text-sm line-clamp-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                        {faq.answer}
-                      </p>
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {faq.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-slate-400 ml-4 mt-2" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {viewMode === 'cards' && (
-          <div className="grid md:grid-cols-2 gap-6">
-            {filteredFAQs.map((faq) => (
-              <Card key={faq.id} className={`transition-all duration-200 hover:shadow-lg ${
-                isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white'
-              }`}>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant="outline">{faq.category}</Badge>
-                    <div className="flex items-center text-sm text-slate-500">
-                      <ThumbsUp className="w-4 h-4 mr-1" />
-                      {faq.upvotes}
-                    </div>
-                    {faq.is_verified && (
-                      <Badge className="bg-green-500 text-white">Verified</Badge>
-                    )}
-                  </div>
-                  <h3 className={`text-lg font-semibold mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    {faq.question}
-                  </h3>
-                  <p className={`mb-4 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                    {faq.answer}
-                  </p>
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {faq.tags.map(tag => (
-                      <span key={tag} className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">
-                        #{tag}
-                      </span>
+          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+            <TabsList className="grid w-full grid-cols-6 mb-6">
+              {categories.map((category) => {
+                const Icon = category.icon;
+                const count = faqs.filter(faq => category.id === 'all' || faq.category === category.id).length;
+                
+                return (
+                  <TabsTrigger 
+                    key={category.id} 
+                    value={category.id}
+                    className="flex items-center gap-2 data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span className="hidden sm:inline">{category.name}</span>
+                    <Badge variant="secondary" className="ml-1 text-xs">
+                      {count}
+                    </Badge>
+                  </TabsTrigger>
+                );
+              })}
+            </TabsList>
+            
+            {/* Tab Content for each category */}
+            {categories.map((category) => (
+              <TabsContent key={category.id} value={category.id} className="mt-0">
+                {/* FAQ Content within each tab */}
+                {viewMode === 'quick' && (
+                  <div className="grid gap-3">
+                    {filteredFAQs.slice(0, 10).map((faq) => (
+                      <Card key={faq.id} className={`cursor-pointer transition-all duration-200 hover:shadow-lg ${
+                        isDark ? 'bg-slate-900/50 border-slate-800 hover:border-slate-700' : 'bg-white hover:border-slate-300'
+                      }`}>
+                        <CardContent className="p-4">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Badge variant="outline" className="text-xs">
+                                  {faq.category}
+                                </Badge>
+                                <div className="flex items-center text-xs text-slate-500">
+                                  <ThumbsUp className="w-3 h-3 mr-1" />
+                                  {faq.upvotes}
+                                </div>
+                                {faq.is_verified && (
+                                  <Badge className="bg-green-500 text-white text-xs">Verified</Badge>
+                                )}
+                              </div>
+                              <h3 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                {faq.question}
+                              </h3>
+                              <p className={`text-sm line-clamp-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                                {faq.answer}
+                              </p>
+                              <div className="flex flex-wrap gap-1 mt-2">
+                                {faq.tags.slice(0, 3).map(tag => (
+                                  <span key={tag} className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">
+                                    #{tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                            <ArrowRight className="w-4 h-4 text-slate-400 ml-4 mt-2" />
+                          </div>
+                        </CardContent>
+                      </Card>
                     ))}
                   </div>
-                  {faq.reddit_source && (
-                    <a 
-                      href={faq.reddit_source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-blue-500 hover:text-blue-600"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      View on Reddit
-                    </a>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+                )}
 
-        {viewMode === 'list' && (
-          <div className="space-y-2">
-            {filteredFAQs.map((faq) => {
-              const isOpen = openItems.includes(faq.id);
-              return (
-                <div
-                  key={faq.id}
-                  className={`border rounded-lg transition-all duration-200 ${
-                    isDark ? 'bg-slate-900/30 border-slate-800' : 'bg-white border-slate-200'
-                  }`}
-                >
-                  <button
-                    onClick={() => toggleItem(faq.id)}
-                    className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50"
-                  >
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Badge variant="outline" className="text-xs">{faq.category}</Badge>
-                        <span className="text-xs text-slate-500">{faq.upvotes} upvotes</span>
-                      </div>
-                      <h3 className={`font-medium ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        {faq.question}
-                      </h3>
-                    </div>
-                    <ChevronDown className={`w-4 h-4 transition-transform ${
-                      isOpen ? 'rotate-180' : ''
-                    }`} />
-                  </button>
-                  {isOpen && (
-                    <div className="px-4 pb-4">
-                      <p className={`mb-3 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                        {faq.answer}
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {faq.tags.map(tag => (
-                          <span key={tag} className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
+                {viewMode === 'cards' && (
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {filteredFAQs.map((faq) => (
+                      <Card key={faq.id} className={`transition-all duration-200 hover:shadow-lg ${
+                        isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white'
+                      }`}>
+                        <CardContent className="p-6">
+                          <div className="flex items-center gap-2 mb-3">
+                            <Badge variant="outline">{faq.category}</Badge>
+                            <div className="flex items-center text-sm text-slate-500">
+                              <ThumbsUp className="w-4 h-4 mr-1" />
+                              {faq.upvotes}
+                            </div>
+                            {faq.is_verified && (
+                              <Badge className="bg-green-500 text-white">Verified</Badge>
+                            )}
+                          </div>
+                          <h3 className={`text-lg font-semibold mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                            {faq.question}
+                          </h3>
+                          <p className={`mb-4 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                            {faq.answer}
+                          </p>
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {faq.tags.map(tag => (
+                              <span key={tag} className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                          {faq.reddit_source && (
+                            <a 
+                              href={faq.reddit_source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-sm text-blue-500 hover:text-blue-600"
+                            >
+                              <ExternalLink className="w-4 h-4 mr-1" />
+                              View on Reddit
+                            </a>
+                          )}
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                )}
+
+                {viewMode === 'list' && (
+                  <div className="space-y-2">
+                    {filteredFAQs.map((faq) => {
+                      const isOpen = openItems.includes(faq.id);
+                      return (
+                        <div
+                          key={faq.id}
+                          className={`border rounded-lg transition-all duration-200 ${
+                            isDark ? 'bg-slate-900/30 border-slate-800' : 'bg-white border-slate-200'
+                          }`}
+                        >
+                          <button
+                            onClick={() => toggleItem(faq.id)}
+                            className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                          >
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <Badge variant="outline" className="text-xs">{faq.category}</Badge>
+                                <span className="text-xs text-slate-500">{faq.upvotes} upvotes</span>
+                              </div>
+                              <h3 className={`font-medium ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                {faq.question}
+                              </h3>
+                            </div>
+                            <ChevronDown className={`w-4 h-4 transition-transform ${
+                              isOpen ? 'rotate-180' : ''
+                            }`} />
+                          </button>
+                          {isOpen && (
+                            <div className="px-4 pb-4">
+                              <p className={`mb-3 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                                {faq.answer}
+                              </p>
+                              <div className="flex flex-wrap gap-1">
+                                {faq.tags.map(tag => (
+                                  <span key={tag} className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">
+                                    #{tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
 
         {/* Stats Footer */}
         <div className="mt-12 text-center">
