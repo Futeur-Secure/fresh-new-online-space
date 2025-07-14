@@ -938,41 +938,6 @@ const FuteurVault = () => {
         </div>
       </section>
 
-      {/* Use Cases Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div id="use-cases-header" data-animate className={`text-center mb-16 transition-all duration-700 ${isVisible['use-cases-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className={`text-2xl md:text-3xl font-medium mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Industry Solutions
-            </h2>
-            <p className={`text-base ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Tailored security for regulated industries
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {useCases.map((useCase, i) => (
-              <div
-                key={i}
-                id={`use-case-${i}`}
-                data-animate
-                className={`transition-all duration-700 ${isVisible[`use-case-${i}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ transitionDelay: `${i * 150}ms` }}
-              >
-                <div className={`p-6 rounded-xl border transition-all duration-300 ${isDark ? 'bg-slate-900/20 border-slate-800/30 hover:border-slate-700/50' : 'bg-white border-slate-200/50 hover:border-slate-300'}`}>
-                  <useCase.icon className={`w-8 h-8 mb-4 ${isDark ? 'text-slate-300' : 'text-slate-700'}`} />
-                  <h3 className={`text-lg font-medium mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    {useCase.title}
-                  </h3>
-                  <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                    {useCase.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <PricingSection isDark={isDark} />
       {/* Compliance & Certifications */}
