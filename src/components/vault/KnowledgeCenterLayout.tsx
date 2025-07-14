@@ -43,35 +43,35 @@ const KnowledgeCenterLayout: React.FC<KnowledgeCenterLayoutProps> = ({ faqs }) =
       isNew: false
     },
     {
-      id: 'Security',
+      id: 'Security & Privacy',
       icon: Shield,
       title: 'Security & Privacy',
       description: 'Understand how FuteurVault protects your data with zero-knowledge encryption.',
       isNew: false
     },
     {
-      id: 'Sharing',
+      id: 'Team Access',
       icon: Users,
       title: 'Team Access',
       description: 'Invite teammates, set permissions, and manage shared vaults securely.',
       isNew: true
     },
     {
-      id: 'Enterprise',
+      id: 'Billing & Subscriptions',
       icon: CreditCard,
       title: 'Billing & Subscriptions',
       description: 'Manage your subscription, view invoices, and understand pricing tiers.',
       isNew: false
     },
     {
-      id: 'General',
+      id: 'Integrations',
       icon: Link,
       title: 'Integrations',
       description: 'Connect FuteurVault with your favorite apps and browser extensions.',
       isNew: false
     },
     {
-      id: 'Personal',
+      id: 'Advanced Features',
       icon: Cog,
       title: 'Advanced Features',
       description: 'Master advanced security features like health reports and autofill settings.',
