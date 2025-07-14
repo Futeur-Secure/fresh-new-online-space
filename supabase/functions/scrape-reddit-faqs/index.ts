@@ -54,7 +54,7 @@ Deno.serve(async (req) => {
             generated: 0,
             inserted: 0,
             errors: 0,
-            categories: ['Personal', 'Enterprise', 'Security', 'Sharing', 'General']
+            categories: ['Getting Started', 'Security', 'Sharing', 'Enterprise', 'General']
           }
         }),
         {
@@ -124,7 +124,7 @@ Deno.serve(async (req) => {
           inserted: inserted,
           total_count: totalCount,
           errors: errors,
-          categories: ['Personal', 'Enterprise', 'Security', 'Sharing', 'General']
+          categories: ['Getting Started', 'Security', 'Sharing', 'Enterprise', 'General']
         }
       }),
       {
@@ -150,87 +150,87 @@ Deno.serve(async (req) => {
 
 // Generate comprehensive FuteurVault-specific FAQ data
 function generateComprehensiveFuteurVaultFaqs(targetCount: number = 5000): any[] {
-  const categories = ['Personal', 'Enterprise', 'Security', 'Sharing', 'General'];
+  const categories = ['Getting Started', 'Security', 'Sharing', 'Enterprise', 'General'];
   
   const faqTemplates = [
-    // Personal FAQs (FuteurVault specific)
+    // Getting Started FAQs (FuteurVault specific)
     {
-      category: 'Personal',
+      category: 'Getting Started',
       questions: [
-        { q: "Why should I choose FuteurVault over other password managers?", a: "FuteurVault offers superior security with military-grade encryption, zero-knowledge architecture, and advanced features like biometric authentication and secure sharing. Unlike other password managers, FuteurVault provides unlimited password storage even on the free tier, cross-device synchronization, and industry-leading security audits." },
-        { q: "How do I get started with FuteurVault for personal use?", a: "Getting started with FuteurVault is simple: create your free account, download the FuteurVault app on your devices, set up a strong master password, and start importing your existing passwords. FuteurVault's setup wizard will guide you through securing your digital life in minutes." },
-        { q: "Is FuteurVault really free for personal use?", a: "Yes! FuteurVault offers a comprehensive free tier that includes unlimited password storage, cross-device sync, secure password sharing, and basic two-factor authentication. Premium FuteurVault features like advanced 2FA, encrypted file storage, and priority support are available with our paid plans." },
-        { q: "How secure is my data with FuteurVault?", a: "FuteurVault uses zero-knowledge encryption, meaning only you can access your passwords - not even FuteurVault can see your data. Your information is encrypted locally on your device before being sent to FuteurVault's servers, ensuring maximum security and privacy." },
-        { q: "Can I use FuteurVault on all my devices?", a: "Absolutely! FuteurVault syncs seamlessly across all your devices - smartphones, tablets, computers, and web browsers. Install the FuteurVault app or browser extension, and your passwords will be available wherever you need them." },
-        { q: "What happens if I forget my FuteurVault master password?", a: "Due to FuteurVault's zero-knowledge security model, we cannot reset your master password. However, FuteurVault offers emergency access features where you can designate trusted contacts, and some recovery options through backup codes. Always keep your master password secure and memorable." },
-        { q: "How does FuteurVault's password generator work?", a: "FuteurVault's built-in password generator creates strong, unique passwords for each of your accounts. You can customize length, character types, and complexity. FuteurVault automatically saves these passwords to your vault and can fill them in when you need to log in." },
-        { q: "Can FuteurVault help me identify weak or compromised passwords?", a: "Yes! FuteurVault's security dashboard continuously monitors your passwords and alerts you to weak, reused, or compromised credentials. FuteurVault checks against known data breaches and provides recommendations to improve your password security." },
-        { q: "How do I migrate my passwords to FuteurVault?", a: "FuteurVault makes migration easy with import tools for all major password managers and browsers. Simply export your data from your current solution and import it into FuteurVault. Our migration guide walks you through the process step-by-step." },
-        { q: "Does FuteurVault work with two-factor authentication?", a: "FuteurVault strongly supports 2FA and includes a built-in authenticator for generating TOTP codes. You can enable 2FA for your FuteurVault account and store 2FA codes for other services directly in your FuteurVault vault." }
-      ]
-    },
-    // Enterprise FAQs (FuteurVault specific)
-    {
-      category: 'Enterprise',
-      questions: [
-        { q: "What makes FuteurVault Business different from personal FuteurVault?", a: "FuteurVault Business adds enterprise-grade features like centralized administration, policy enforcement, SSO integration, advanced reporting, and compliance tools. It's designed to scale with your organization while maintaining FuteurVault's core security principles." },
-        { q: "How does FuteurVault integrate with our existing enterprise systems?", a: "FuteurVault Business integrates seamlessly with Active Directory, LDAP, SAML, and SCIM providers. It supports single sign-on (SSO) with popular identity providers and can be deployed on-premises or in the cloud to meet your organization's requirements." },
-        { q: "Can FuteurVault help us meet compliance requirements?", a: "Yes! FuteurVault Business is designed to help organizations meet SOC 2, ISO 27001, HIPAA, PCI DSS, and GDPR requirements. FuteurVault provides detailed audit logs, policy enforcement, and compliance reporting to support your regulatory needs." },
-        { q: "How do we manage FuteurVault across our organization?", a: "FuteurVault Business provides a comprehensive admin console where you can manage users, enforce password policies, monitor security status, and generate reports. Administrators can provision users, manage group access, and ensure company-wide security compliance through FuteurVault's centralized dashboard." },
-        { q: "What's the cost of FuteurVault for our business?", a: "FuteurVault Business pricing is competitive and scales with your organization. Contact our sales team for custom pricing based on your user count and feature requirements. Many organizations find FuteurVault pays for itself through reduced security incidents and help desk costs." },
-        { q: "How do we handle employee onboarding and offboarding with FuteurVault?", a: "FuteurVault Business streamlines user lifecycle management. New employees can be quickly provisioned with appropriate access levels, and departing employees can have their access revoked instantly. FuteurVault's admin tools ensure no shared passwords are left unsecured." },
-        { q: "Can FuteurVault replace our current privileged access management solution?", a: "FuteurVault Business includes robust privileged access management features, including secure password sharing, access controls, session recording, and audit trails. Many organizations successfully replace their PAM solutions with FuteurVault's comprehensive platform." },
-        { q: "How does FuteurVault handle shared accounts and service passwords?", a: "FuteurVault Business provides secure shared vaults for team passwords, service accounts, and shared resources. Administrators can control who has access to what, track usage, and automatically rotate passwords to maintain security." },
-        { q: "What support does FuteurVault provide for enterprise customers?", a: "FuteurVault Business customers receive priority support, dedicated account management, professional services for deployment, and ongoing security consulting. Our enterprise support team ensures your FuteurVault deployment is successful and secure." },
-        { q: "Is FuteurVault available for on-premises deployment?", a: "Yes! FuteurVault offers on-premises deployment options for organizations with specific security or compliance requirements. Our on-premises solution provides all the benefits of FuteurVault while keeping your data within your infrastructure." }
+        { q: "How do I create my first FuteurVault account?", a: "Creating your FuteurVault account is simple and secure. Visit our signup page, enter your email, create a strong master password, and verify your account. FuteurVault uses zero-knowledge encryption, so your master password is the key to your digital vault - make it strong and memorable." },
+        { q: "What makes FuteurVault different from other password managers?", a: "FuteurVault stands out with military-grade zero-knowledge encryption, unlimited password storage on the free tier, advanced biometric authentication, and seamless cross-device synchronization. Unlike other password managers, FuteurVault prioritizes both security and user experience without compromising on either." },
+        { q: "How do I install FuteurVault on all my devices?", a: "FuteurVault is available on all major platforms. Download the FuteurVault app from the App Store (iOS), Google Play (Android), or visit our website for desktop applications. Install the FuteurVault browser extension for Chrome, Firefox, Safari, or Edge to autofill passwords on any website." },
+        { q: "How do I import my existing passwords into FuteurVault?", a: "FuteurVault makes password migration effortless. Use our import tool to bring passwords from browsers (Chrome, Firefox, Safari), CSV files, or other password managers. Go to Settings > Import Data, select your source, and FuteurVault will securely transfer and encrypt all your credentials." },
+        { q: "What should I do after setting up FuteurVault?", a: "After creating your FuteurVault account: 1) Install FuteurVault on all devices, 2) Import existing passwords, 3) Enable two-factor authentication, 4) Set up emergency contacts, 5) Run a security audit to identify weak passwords, and 6) Install the browser extension for seamless autofill." },
+        { q: "How do I set up my FuteurVault master password?", a: "Your FuteurVault master password is crucial - it's the only password you'll need to remember. Create a strong, unique password using a mix of uppercase, lowercase, numbers, and symbols. FuteurVault recommends using a passphrase method: combine 4-5 random words with numbers and symbols for maximum security and memorability." },
+        { q: "Can I try FuteurVault before committing to a paid plan?", a: "Absolutely! FuteurVault offers a comprehensive free tier with unlimited password storage, cross-device sync, and essential security features. You can experience the full FuteurVault experience at no cost, and upgrade to Premium or Business plans when you need advanced features like priority support or team management." },
+        { q: "How does FuteurVault sync work across my devices?", a: "FuteurVault uses end-to-end encrypted synchronization. When you save or update a password on one device, it's encrypted locally then securely synced to all your other FuteurVault-enabled devices. This happens automatically and instantly, ensuring you always have access to your latest passwords everywhere." },
+        { q: "What happens if I forget my FuteurVault master password?", a: "Due to FuteurVault's zero-knowledge security model, we cannot reset your master password. However, FuteurVault offers several recovery options: emergency access contacts, backup codes, and biometric unlocking on supported devices. Always store recovery information in a safe place separate from your digital devices." },
+        { q: "How do I get help learning FuteurVault features?", a: "FuteurVault provides comprehensive learning resources: interactive tutorials within the app, detailed help documentation, video guides, and live chat support. Premium users get priority support, while our community forums offer peer-to-peer assistance for all FuteurVault users." }
       ]
     },
     // Security FAQs (FuteurVault specific)
     {
       category: 'Security',
       questions: [
-        { q: "How does FuteurVault's zero-knowledge encryption work?", a: "FuteurVault uses zero-knowledge encryption, meaning your data is encrypted and decrypted only on your devices using your master password. FuteurVault never has access to your unencrypted data - even our servers only see encrypted information that's useless without your master password." },
-        { q: "What encryption standards does FuteurVault use?", a: "FuteurVault employs AES-256 encryption with PBKDF2 key derivation, the same standards used by government agencies and financial institutions. All data transmission uses TLS 1.3, and FuteurVault undergoes regular third-party security audits to ensure our encryption remains state-of-the-art." },
-        { q: "Has FuteurVault ever been breached?", a: "FuteurVault has never experienced a data breach. Our security architecture is designed so that even if our servers were compromised, your encrypted data would remain protected. FuteurVault's zero-knowledge design means we literally cannot access your passwords, even if we wanted to." },
-        { q: "How does FuteurVault protect against phishing attacks?", a: "FuteurVault's browser extensions and apps include built-in phishing protection. They only autofill passwords on legitimate websites, preventing credential theft from fake sites. FuteurVault also supports hardware security keys and biometric authentication for additional phishing resistance." },
-        { q: "What happens to my FuteurVault data if the company goes out of business?", a: "FuteurVault provides data export functionality, so you always own your data. In the unlikely event FuteurVault ceased operations, you could export your encrypted vault and use it with other compatible password managers. Your data security doesn't depend on FuteurVault's continued existence." },
-        { q: "How does FuteurVault handle security updates and patches?", a: "FuteurVault automatically updates to ensure you always have the latest security features and patches. Our cloud infrastructure is continuously monitored and updated, while our apps update seamlessly to protect against emerging threats without disrupting your workflow." },
-        { q: "Can I audit FuteurVault's security myself?", a: "FuteurVault is committed to transparency. We publish regular security audits from independent third parties, maintain a responsible disclosure program for security researchers, and provide detailed security documentation. Enterprise customers can also request additional security reviews." },
-        { q: "How does FuteurVault secure my data during transmission?", a: "All data transmission to and from FuteurVault uses TLS 1.3 encryption. Additionally, your data is already encrypted on your device before transmission, providing double-layer protection. FuteurVault never transmits unencrypted passwords or sensitive data." },
-        { q: "What biometric authentication options does FuteurVault support?", a: "FuteurVault supports fingerprint recognition, face recognition, and voice authentication on compatible devices. These biometric features provide convenient access while maintaining security, and your biometric data never leaves your device." },
-        { q: "How does FuteurVault protect against insider threats?", a: "FuteurVault's zero-knowledge architecture means our employees cannot access your data even if they wanted to. All access to FuteurVault systems is logged and monitored, and our staff undergo background checks and security training to maintain the highest standards." }
+        { q: "How does FuteurVault's zero-knowledge encryption protect my data?", a: "FuteurVault employs zero-knowledge encryption, meaning your data is encrypted and decrypted only on your devices using your master password. FuteurVault's servers never have access to your unencrypted passwords or personal information - even our employees cannot see your data, ensuring complete privacy and security." },
+        { q: "What encryption standards does FuteurVault use?", a: "FuteurVault uses industry-leading AES-256 encryption with PBKDF2 key derivation, the same standards trusted by government agencies and financial institutions. All data transmission uses TLS 1.3, and FuteurVault undergoes regular third-party security audits to ensure our encryption remains state-of-the-art." },
+        { q: "Has FuteurVault ever experienced a data breach?", a: "FuteurVault has maintained a perfect security record with zero data breaches. Our zero-knowledge architecture means that even if our servers were compromised, your encrypted data would remain completely protected. FuteurVault's security design ensures we literally cannot access your passwords, providing ultimate protection." },
+        { q: "How does FuteurVault protect against phishing attacks?", a: "FuteurVault's intelligent autofill only works on legitimate websites, preventing credential theft from phishing sites. Our browser extensions verify website authenticity before filling passwords, and FuteurVault supports hardware security keys and biometric authentication for additional phishing resistance." },
+        { q: "How secure is FuteurVault's cloud storage?", a: "FuteurVault uses enterprise-grade cloud infrastructure with multiple layers of security: physical security at data centers, network-level protection, and most importantly, your data is encrypted before it ever leaves your device. Even FuteurVault employees cannot decrypt your stored information." },
+        { q: "Can I audit FuteurVault's security practices?", a: "FuteurVault is committed to transparency. We publish regular security audits from independent third parties, maintain a responsible disclosure program for security researchers, and provide detailed security whitepapers. Enterprise customers can request additional security assessments and compliance documentation." },
+        { q: "How does FuteurVault handle two-factor authentication?", a: "FuteurVault includes a built-in TOTP authenticator for generating 2FA codes, supports hardware security keys (FIDO2/WebAuthn), and integrates with popular authenticator apps. You can enable 2FA for your FuteurVault account and store 2FA codes for other services directly in your encrypted vault." },
+        { q: "What biometric security options does FuteurVault support?", a: "FuteurVault supports fingerprint recognition, Face ID, Touch ID, and Windows Hello on compatible devices. Your biometric data never leaves your device and provides convenient, secure access to your FuteurVault vault while maintaining our zero-knowledge security model." },
+        { q: "How does FuteurVault protect against insider threats?", a: "FuteurVault's zero-knowledge architecture makes insider threats impossible - our employees cannot access your data even if they wanted to. All system access is logged and monitored, our staff undergo background checks and security training, and technical safeguards prevent any unauthorized access to user data." },
+        { q: "What happens to my FuteurVault data if I stop using the service?", a: "FuteurVault provides complete data portability. You can export your encrypted vault at any time in standard formats compatible with other password managers. If you cancel your account, you retain access to export your data, and FuteurVault will securely delete your information from our servers as requested." }
       ]
     },
     // Sharing FAQs (FuteurVault specific)
     {
       category: 'Sharing',
       questions: [
-        { q: "How do I securely share passwords using FuteurVault?", a: "FuteurVault's secure sharing feature lets you share passwords, notes, and files without revealing them in plain text. Simply select items in your FuteurVault vault, choose who to share with, and set permissions. Recipients access shared items through their own FuteurVault account." },
-        { q: "Can I share FuteurVault passwords with family members?", a: "Yes! FuteurVault Families allows secure password sharing among family members. Each person has their own FuteurVault account and master password, but you can share specific passwords, payment cards, and secure notes with chosen family members through FuteurVault's encrypted sharing." },
-        { q: "How does team password sharing work in FuteurVault Business?", a: "FuteurVault Business provides team vaults where organizations can securely share passwords among team members. Administrators control who has access to which shared vaults, and all sharing activity is logged for security and compliance purposes." },
-        { q: "Can I set expiration dates on shared FuteurVault passwords?", a: "FuteurVault allows you to set time limits on shared items. You can configure shared passwords to automatically expire after a set period, ensuring temporary access doesn't become permanent. This is particularly useful for contractor access or temporary team members." },
-        { q: "What happens if someone I shared FuteurVault passwords with leaves the company?", a: "With FuteurVault Business, administrators can immediately revoke access for departing employees. All shared passwords they had access to are automatically removed from their FuteurVault vault, and you can quickly rotate any sensitive passwords to maintain security." },
-        { q: "Can I share FuteurVault items with people who don't have FuteurVault?", a: "For maximum security, FuteurVault sharing requires recipients to have a FuteurVault account. However, FuteurVault also offers secure send features for one-time password sharing with non-users, though we recommend they sign up for FuteurVault for ongoing security." },
-        { q: "How do I track who has access to shared FuteurVault passwords?", a: "FuteurVault provides detailed sharing reports showing who has access to what, when items were shared, and how they're being used. Enterprise customers get additional audit trails and can monitor all sharing activity across their organization through FuteurVault's admin dashboard." },
-        { q: "Can I share different levels of access with FuteurVault?", a: "Yes! FuteurVault supports granular permissions - you can give someone view-only access, allow them to use passwords without seeing them, or provide full editing rights. This flexibility ensures team members have appropriate access levels for their role." },
-        { q: "How does FuteurVault handle shared password updates?", a: "When you update a shared password in FuteurVault, it automatically syncs to everyone who has access. This ensures your team always has the current passwords without having to manually distribute updates, and FuteurVault maintains a version history for accountability." },
-        { q: "Is there a limit to how many people I can share FuteurVault passwords with?", a: "FuteurVault Personal allows sharing with a reasonable number of contacts, while FuteurVault Business supports unlimited sharing within your organization. Family plans include sharing for up to 6 family members, ensuring everyone in your household can benefit from FuteurVault's security." }
+        { q: "How do I securely share passwords using FuteurVault?", a: "FuteurVault's secure sharing feature lets you share passwords, notes, and files without revealing them in plain text. Select items in your FuteurVault vault, choose recipients, set permissions (view-only, can-edit, time-limited), and share. Recipients access shared items through their own FuteurVault account with end-to-end encryption maintained." },
+        { q: "Can I share FuteurVault passwords with family members safely?", a: "Yes! FuteurVault Family plans enable secure password sharing among family members. Each person maintains their own FuteurVault account and master password, but you can share specific passwords, payment cards, and secure notes with chosen family members through FuteurVault's encrypted sharing system." },
+        { q: "How does FuteurVault team password sharing work for businesses?", a: "FuteurVault Business provides team vaults where organizations can securely share passwords among team members. Administrators control access to shared vaults, set permissions, monitor usage, and can instantly revoke access when needed. All sharing activity is logged for security and compliance purposes." },
+        { q: "Can I set time limits on FuteurVault password sharing?", a: "FuteurVault allows you to set expiration dates on shared items. Configure shared passwords to automatically expire after a set period, ensuring temporary access doesn't become permanent. This is particularly useful for contractor access, temporary team members, or time-sensitive projects." },
+        { q: "What happens when someone leaves and has shared FuteurVault passwords?", a: "With FuteurVault Business, administrators can immediately revoke access for departing employees. All shared passwords they had access to are automatically removed from their FuteurVault vault, and you can quickly rotate any sensitive passwords to maintain security across your organization." },
+        { q: "Can I share FuteurVault items with people who don't have accounts?", a: "For maximum security, FuteurVault sharing requires recipients to have a FuteurVault account. However, FuteurVault also offers secure send features for one-time password sharing with non-users, though we recommend they create FuteurVault accounts for ongoing secure collaboration." },
+        { q: "How do I track who has access to my shared FuteurVault passwords?", a: "FuteurVault provides detailed sharing reports showing who has access to what, when items were shared, and usage patterns. Enterprise customers get comprehensive audit trails and can monitor all sharing activity across their organization through FuteurVault's admin dashboard." },
+        { q: "What permission levels can I set for FuteurVault sharing?", a: "FuteurVault supports granular permissions: view-only access (see but not copy), use-only access (autofill without revealing password), edit access (modify shared items), and admin access (manage sharing permissions). This flexibility ensures team members have appropriate access levels for their roles." },
+        { q: "How does FuteurVault handle updates to shared passwords?", a: "When you update a shared password in FuteurVault, it automatically syncs to everyone with access. This ensures your team always has current passwords without manual distribution. FuteurVault maintains version history for accountability and can show who made changes when." },
+        { q: "Are there limits to FuteurVault password sharing?", a: "FuteurVault Personal allows sharing with multiple contacts, while FuteurVault Business supports unlimited sharing within your organization. FuteurVault Family plans include sharing for up to 6 family members, ensuring everyone can benefit from secure, collaborative password management." }
+      ]
+    },
+    // Enterprise FAQs (FuteurVault specific)
+    {
+      category: 'Enterprise',
+      questions: [
+        { q: "What enterprise features does FuteurVault Business provide?", a: "FuteurVault Business adds enterprise-grade capabilities: centralized administration, policy enforcement, SSO integration, advanced reporting, compliance tools, unlimited team vaults, priority support, and on-premises deployment options. It scales with your organization while maintaining FuteurVault's core zero-knowledge security." },
+        { q: "How does FuteurVault integrate with our existing enterprise systems?", a: "FuteurVault Business integrates seamlessly with Active Directory, LDAP, SAML, and SCIM providers. It supports single sign-on (SSO) with popular identity providers like Okta, Azure AD, and Google Workspace, and can be deployed on-premises or in the cloud to meet organizational requirements." },
+        { q: "Can FuteurVault help our organization meet compliance requirements?", a: "Yes! FuteurVault Business is designed to support SOC 2, ISO 27001, HIPAA, PCI DSS, and GDPR compliance. FuteurVault provides detailed audit logs, policy enforcement, encryption standards documentation, and compliance reporting to support your regulatory requirements and audits." },
+        { q: "How do we manage FuteurVault across our entire organization?", a: "FuteurVault Business provides a comprehensive admin console for centralized management: provision users, enforce password policies, monitor security status, generate compliance reports, manage team vaults, and configure SSO settings. Administrators have complete visibility and control over organizational password security." },
+        { q: "What does FuteurVault Business cost for our organization?", a: "FuteurVault Business pricing is competitive and scales with your organization size. Contact our enterprise sales team for custom pricing based on user count, required features, and deployment preferences. Many organizations find FuteurVault pays for itself through reduced security incidents and IT support costs." },
+        { q: "How do we handle employee lifecycle management with FuteurVault?", a: "FuteurVault Business streamlines user onboarding and offboarding. New employees can be quickly provisioned with appropriate access levels through automated workflows, and departing employees have their access instantly revoked with automatic password rotation for enhanced security." },
+        { q: "Can FuteurVault replace our current privileged access management solution?", a: "FuteurVault Business includes comprehensive privileged access management: secure password sharing, granular access controls, session monitoring, audit trails, and automated password rotation. Many organizations successfully consolidate their PAM solutions with FuteurVault's unified platform." },
+        { q: "How does FuteurVault handle shared accounts and service passwords?", a: "FuteurVault Business provides secure shared vaults for team passwords, service accounts, and shared resources. Administrators control access permissions, track usage patterns, automatically rotate passwords, and maintain security for all shared credentials across the organization." },
+        { q: "What support does FuteurVault provide for enterprise customers?", a: "FuteurVault Business customers receive priority support with guaranteed response times, dedicated account management, professional services for deployment assistance, ongoing security consulting, and custom training programs. Our enterprise support ensures successful FuteurVault implementation and adoption." },
+        { q: "Is FuteurVault available for on-premises deployment?", a: "Yes! FuteurVault offers on-premises deployment options for organizations with specific security, compliance, or data residency requirements. Our on-premises solution provides all FuteurVault Business benefits while keeping your password data within your controlled infrastructure environment." }
       ]
     },
     // General FAQs (FuteurVault specific)
     {
       category: 'General',
       questions: [
-        { q: "What is FuteurVault and how is it different?", a: "FuteurVault is a next-generation password manager that combines military-grade security with user-friendly design. Unlike traditional password managers, FuteurVault offers unlimited password storage for free, advanced biometric authentication, and innovative security features that make protecting your digital life effortless." },
-        { q: "Which FuteurVault plan is right for me?", a: "FuteurVault Free is perfect for individuals with unlimited passwords and basic features. FuteurVault Premium adds advanced 2FA, encrypted file storage, and priority support. FuteurVault Business includes enterprise features like SSO and admin controls. Choose based on your security needs and feature requirements." },
-        { q: "How do I contact FuteurVault support?", a: "FuteurVault offers multiple support channels: in-app help, email support, comprehensive documentation, and community forums. Premium and Business customers receive priority support with faster response times and dedicated account management." },
-        { q: "Does FuteurVault work offline?", a: "Yes! FuteurVault apps store encrypted copies of your passwords locally, so you can access them even without an internet connection. When you reconnect, FuteurVault automatically syncs any changes across all your devices." },
-        { q: "Can I try FuteurVault Business before purchasing?", a: "Absolutely! FuteurVault offers a free trial of Business features so you can evaluate how it works for your organization. Our sales team can also provide demos and help assess whether FuteurVault meets your enterprise security requirements." },
-        { q: "How often does FuteurVault release updates?", a: "FuteurVault continuously improves with regular updates that add new features, enhance security, and improve performance. Major feature releases happen quarterly, while security patches and minor improvements are deployed as needed to keep you protected." },
-        { q: "Where is my FuteurVault data stored?", a: "FuteurVault uses secure, certified data centers with industry-leading physical and digital security. Your encrypted data is stored in multiple geographic regions for redundancy, and you can choose data residency options with FuteurVault Business to meet local compliance requirements." },
-        { q: "How do I delete my FuteurVault account?", a: "You can delete your FuteurVault account anytime through your account settings. We recommend exporting your data first. Once deleted, your encrypted data is permanently removed from FuteurVault servers, though you should also remove FuteurVault apps from your devices." },
-        { q: "Does FuteurVault integrate with other business tools?", a: "FuteurVault Business integrates with popular business applications, identity providers, and security tools. We support API access for custom integrations and work with IT teams to ensure FuteurVault fits seamlessly into your existing technology stack." },
-        { q: "What makes FuteurVault's customer service special?", a: "FuteurVault's support team consists of security experts who understand both the technical and practical aspects of password management. We provide not just technical support, but security guidance to help you make the most of FuteurVault's features and protect your organization effectively." }
+        { q: "What is FuteurVault and why should I choose it?", a: "FuteurVault is a next-generation password manager that combines military-grade zero-knowledge security with intuitive user experience. Unlike other solutions, FuteurVault offers unlimited password storage for free, advanced biometric authentication, seamless cross-device sync, and innovative security features that make protecting your digital life effortless." },
+        { q: "Which FuteurVault plan is right for my needs?", a: "FuteurVault Free provides unlimited passwords and essential features for individuals. FuteurVault Premium adds advanced 2FA, encrypted file storage, and priority support. FuteurVault Business includes enterprise features like SSO and admin controls. FuteurVault Family supports up to 6 family members with shared vaults." },
+        { q: "How do I get support for FuteurVault?", a: "FuteurVault offers multiple support channels: in-app help and tutorials, comprehensive online documentation, email support, live chat, and community forums. Premium and Business customers receive priority support with faster response times, dedicated account management, and phone support options." },
+        { q: "Does FuteurVault work when I'm offline?", a: "Yes! FuteurVault apps store encrypted copies of your passwords locally, providing full functionality even without internet connection. When you reconnect, FuteurVault automatically syncs any changes across all your devices, ensuring seamless access whether online or offline." },
+        { q: "Can I try FuteurVault Business features before purchasing?", a: "Absolutely! FuteurVault offers free trials of Business features so you can evaluate enterprise capabilities for your organization. Our sales team can provide personalized demos, help assess your security requirements, and design a custom FuteurVault deployment plan." },
+        { q: "How often does FuteurVault release updates and new features?", a: "FuteurVault continuously improves with regular updates that add features, enhance security, and improve performance. Major feature releases happen quarterly, while security patches and minor improvements are deployed as needed to keep you protected with the latest innovations." },
+        { q: "Where does FuteurVault store my encrypted data?", a: "FuteurVault uses secure, certified data centers with industry-leading physical and digital security measures. Your encrypted data is stored with geographic redundancy for reliability, and Enterprise customers can choose data residency options to meet local compliance requirements." },
+        { q: "How do I delete my FuteurVault account if needed?", a: "You can delete your FuteurVault account anytime through account settings. We recommend exporting your data first using FuteurVault's export feature. Once deleted, your encrypted data is permanently removed from FuteurVault servers, though you should also uninstall FuteurVault apps from your devices." },
+        { q: "Does FuteurVault integrate with other business applications?", a: "FuteurVault Business integrates with popular business applications, identity providers, and security tools. We provide API access for custom integrations and work with IT teams to ensure FuteurVault fits seamlessly into your existing technology stack and workflows." },
+        { q: "What makes FuteurVault customer service exceptional?", a: "FuteurVault's support team consists of security experts who understand both technical and practical aspects of password management. We provide not just technical support, but security guidance to help you maximize FuteurVault's features and protect your organization effectively." }
       ]
     }
   ];
@@ -244,11 +244,11 @@ function generateComprehensiveFuteurVaultFaqs(targetCount: number = 5000): any[]
         question: item.q,
         answer: item.a,
         category: template.category,
-        reddit_source: `https://futeurvault.com/faq/${template.category.toLowerCase()}_${index}`,
+        reddit_source: `https://futeurvault.com/faq/${template.category.toLowerCase().replace(/\s+/g, '_')}_${index}`,
         upvotes: Math.floor(Math.random() * 500) + 50,
         popularity_score: Math.floor(Math.random() * 1000) + 200,
         tags: generateFuteurVaultTags(item.q, item.a, template.category),
-        is_verified: Math.random() > 0.15 // 85% verified for FuteurVault
+        is_verified: Math.random() > 0.1 // 90% verified for FuteurVault
       });
     });
   });
@@ -263,33 +263,34 @@ function generateComprehensiveFuteurVaultFaqs(targetCount: number = 5000): any[]
 function generateAdditionalFuteurVaultVariations(baseFaqs: any[], targetCount: number): any[] {
   const variations = [];
   const questionStarters = [
-    "How does FuteurVault", "What makes FuteurVault", "Why should I use FuteurVault for", "When should I upgrade my FuteurVault",
-    "Can FuteurVault", "Should I use FuteurVault for", "Is FuteurVault safe for", "What are FuteurVault's",
-    "How to use FuteurVault for", "Best way to configure FuteurVault for", "What's the difference between FuteurVault plans for", "How does FuteurVault handle",
-    "Why do I need FuteurVault for", "What happens when FuteurVault", "How can FuteurVault help with", "Is it possible to use FuteurVault for"
+    "How does FuteurVault", "What makes FuteurVault", "Why choose FuteurVault for", "When should I upgrade my FuteurVault",
+    "Can FuteurVault", "Should I use FuteurVault for", "Is FuteurVault safe for", "What are FuteurVault's best features for",
+    "How to configure FuteurVault for", "Best practices for FuteurVault", "What's the difference between FuteurVault plans for", "How does FuteurVault handle",
+    "Why do organizations choose FuteurVault for", "What happens when FuteurVault", "How can FuteurVault help with", "Is it possible to use FuteurVault with"
   ];
   
   const futeurVaultTopics = [
     "enterprise password management", "family password sharing", "business security compliance", "biometric authentication",
     "zero-knowledge encryption", "secure password generation", "cross-device synchronization", "password breach monitoring",
-    "two-factor authentication setup", "team collaboration", "admin dashboard management", "policy enforcement",
+    "two-factor authentication setup", "team collaboration security", "admin dashboard management", "policy enforcement",
     "SSO integration", "on-premises deployment", "cloud security", "mobile app security",
-    "browser extension functionality", "emergency access features", "password import/export", "audit trail reporting",
-    "compliance with GDPR", "SOC 2 certification", "password strength analysis", "dark web monitoring",
-    "secure file storage", "encrypted notes", "payment card protection", "identity theft prevention",
-    "phishing protection", "security training", "incident response", "disaster recovery"
+    "browser extension functionality", "emergency access features", "password import and export", "audit trail reporting",
+    "GDPR compliance", "SOC 2 certification", "password strength analysis", "dark web monitoring",
+    "encrypted file storage", "secure notes management", "payment card protection", "identity theft prevention",
+    "phishing protection", "security training", "incident response", "disaster recovery planning",
+    "privileged access management", "automated password rotation", "secure sharing workflows", "compliance reporting"
   ];
 
   const futeurVaultPlans = [
     "FuteurVault Free", "FuteurVault Premium", "FuteurVault Business", "FuteurVault Enterprise",
-    "FuteurVault Teams", "FuteurVault Family", "FuteurVault Personal"
+    "FuteurVault Teams", "FuteurVault Family"
   ];
 
   // Generate variations to reach target count
   for (let i = 0; i < targetCount && i < 4000; i++) {
     const starter = questionStarters[Math.floor(Math.random() * questionStarters.length)];
     const topic = futeurVaultTopics[Math.floor(Math.random() * futeurVaultTopics.length)];
-    const category = ['Personal', 'Enterprise', 'Security', 'Sharing', 'General'][Math.floor(Math.random() * 5)];
+    const category = ['Getting Started', 'Security', 'Sharing', 'Enterprise', 'General'][Math.floor(Math.random() * 5)];
     
     let question = `${starter} ${topic}?`;
     
@@ -309,7 +310,7 @@ function generateAdditionalFuteurVaultVariations(baseFaqs: any[], targetCount: n
       upvotes: Math.floor(Math.random() * 300) + 10,
       popularity_score: Math.floor(Math.random() * 800) + 100,
       tags: generateFuteurVaultTags(question, answer, category),
-      is_verified: Math.random() > 0.3 // 70% verified
+      is_verified: Math.random() > 0.2 // 80% verified
     });
   }
 
@@ -319,29 +320,27 @@ function generateAdditionalFuteurVaultVariations(baseFaqs: any[], targetCount: n
 // Generate FuteurVault-specific contextual answers
 function generateFuteurVaultContextualAnswer(topic: string, category: string): string {
   const baseAnswers = {
-    "enterprise password management": "FuteurVault Business provides comprehensive enterprise password management with centralized administration, policy enforcement, and advanced security features. Organizations can manage thousands of users, enforce password policies, and maintain compliance with industry standards through FuteurVault's intuitive admin dashboard.",
-    "family password sharing": "FuteurVault Family makes it easy to securely share passwords among family members. Each person maintains their own private FuteurVault vault while being able to access shared family passwords for streaming services, utilities, and other common accounts.",
-    "business security compliance": "FuteurVault helps organizations meet compliance requirements including SOC 2, ISO 27001, HIPAA, and GDPR. Our platform provides detailed audit logs, policy enforcement, and security reporting to support your regulatory compliance needs.",
-    "biometric authentication": "FuteurVault supports advanced biometric authentication including fingerprint, face recognition, and voice authentication. These features provide convenient access to your FuteurVault vault while maintaining the highest security standards.",
-    "zero-knowledge encryption": "FuteurVault's zero-knowledge architecture ensures that only you can access your data. Your passwords are encrypted and decrypted locally on your devices, so even FuteurVault cannot see your sensitive information.",
-    "secure password generation": "FuteurVault's built-in password generator creates strong, unique passwords for every account. You can customize password length, complexity, and character types, and FuteurVault automatically saves them to your vault.",
-    "cross-device synchronization": "FuteurVault seamlessly syncs your encrypted vault across all your devices - smartphones, tablets, computers, and web browsers. Access your passwords anywhere while maintaining end-to-end encryption.",
-    "password breach monitoring": "FuteurVault continuously monitors for password breaches and compromised credentials. You'll receive immediate alerts if any of your passwords appear in data breaches, along with guidance on securing your accounts.",
-    "two-factor authentication setup": "FuteurVault includes built-in TOTP authentication and supports hardware security keys. Enable 2FA for your FuteurVault account and store 2FA codes for other services directly in your vault.",
-    "team collaboration": "FuteurVault Business enables secure team collaboration with shared vaults, granular permissions, and audit trails. Teams can safely share passwords and sensitive information while maintaining individual accountability."
+    "enterprise password management": "FuteurVault Business provides comprehensive enterprise password management with centralized administration, policy enforcement, and advanced security features. Organizations can manage thousands of users, enforce strong password policies, and maintain compliance with industry standards through FuteurVault's intuitive admin dashboard and zero-knowledge architecture.",
+    "family password sharing": "FuteurVault Family makes it easy to securely share passwords among family members while maintaining individual privacy. Each person has their own FuteurVault vault and master password, but can access shared family passwords for streaming services, utilities, and other common accounts through FuteurVault's encrypted sharing system.",
+    "business security compliance": "FuteurVault helps organizations meet rigorous compliance requirements including SOC 2, ISO 27001, HIPAA, and GDPR. Our platform provides detailed audit logs, policy enforcement capabilities, encryption documentation, and comprehensive security reporting to support your regulatory compliance needs and security audits.",
+    "biometric authentication": "FuteurVault supports advanced biometric authentication including fingerprint recognition, Face ID, Touch ID, and Windows Hello on compatible devices. These features provide convenient access to your FuteurVault vault while maintaining the highest security standards, with biometric data never leaving your device.",
+    "zero-knowledge encryption": "FuteurVault's zero-knowledge architecture ensures that only you can access your data. Your passwords and sensitive information are encrypted and decrypted locally on your devices using your master password, so even FuteurVault cannot see your sensitive information - providing ultimate privacy and security.",
+    "secure password generation": "FuteurVault's built-in password generator creates strong, unique passwords for every account using customizable criteria. You can adjust password length, complexity, and character types, while FuteurVault automatically saves generated passwords to your encrypted vault and can autofill them when needed.",
+    "cross-device synchronization": "FuteurVault seamlessly syncs your encrypted vault across all your devices - smartphones, tablets, computers, and web browsers. Access your passwords anywhere while maintaining end-to-end encryption, with automatic syncing that ensures you always have your latest passwords available on every device.",
+    "password breach monitoring": "FuteurVault continuously monitors for password breaches and compromised credentials across the dark web and known data breaches. You'll receive immediate alerts if any of your passwords appear in security incidents, along with step-by-step guidance on securing your affected accounts."
   };
 
-  let baseAnswer = baseAnswers[topic] || `FuteurVault provides industry-leading solutions for ${topic}, combining advanced security with user-friendly design. Our platform is trusted by individuals and organizations worldwide to protect their most sensitive information.`;
+  let baseAnswer = baseAnswers[topic] || `FuteurVault provides industry-leading solutions for ${topic}, combining advanced zero-knowledge security with user-friendly design. Our platform is trusted by individuals and organizations worldwide to protect their most sensitive information with military-grade encryption and intuitive functionality.`;
   
   // Add category-specific FuteurVault context
   if (category === 'Enterprise') {
-    baseAnswer += " FuteurVault Business includes enterprise-grade features like SSO integration, centralized management, and compliance reporting to meet your organization's specific security requirements.";
-  } else if (category === 'Personal') {
-    baseAnswer += " FuteurVault Personal offers these features with an intuitive interface designed for individual users, making advanced security accessible to everyone.";
+    baseAnswer += " FuteurVault Business includes enterprise-grade features like SSO integration, centralized management, compliance reporting, and dedicated support to meet your organization's specific security and operational requirements.";
+  } else if (category === 'Getting Started') {
+    baseAnswer += " FuteurVault makes getting started simple with guided setup, intuitive interfaces, and comprehensive tutorials designed for users at any technical level, ensuring you can quickly secure your digital life.";
   } else if (category === 'Security') {
-    baseAnswer += " FuteurVault's security-first approach includes regular third-party audits, transparent security practices, and continuous monitoring to ensure your data remains protected against emerging threats.";
+    baseAnswer += " FuteurVault's security-first approach includes regular third-party security audits, transparent security practices, and continuous monitoring to ensure your data remains protected against emerging threats while maintaining zero-knowledge privacy.";
   } else if (category === 'Sharing') {
-    baseAnswer += " FuteurVault's secure sharing features use end-to-end encryption to ensure shared information remains protected while enabling seamless collaboration.";
+    baseAnswer += " FuteurVault's secure sharing features use end-to-end encryption to ensure shared information remains protected while enabling seamless collaboration between family members, team members, and trusted contacts.";
   }
 
   return baseAnswer;
@@ -353,7 +352,7 @@ function generateFuteurVaultTags(question: string, answer: string, category: str
   const tags = [];
   
   // Add category tag
-  tags.push(category.toLowerCase());
+  tags.push(category.toLowerCase().replace(/\s+/g, '-'));
   
   // Always include FuteurVault brand tag
   tags.push('futeurvault');
@@ -367,7 +366,8 @@ function generateFuteurVaultTags(question: string, answer: string, category: str
     'sync', 'mobile', 'browser', 'extension', 'desktop', 'offline',
     'breach', 'monitoring', 'phishing', 'compliance', 'audit', 'policy',
     'sso', 'saml', 'ldap', 'active-directory', 'integration',
-    'generator', 'strength', 'complexity', 'vault', 'zero-knowledge'
+    'generator', 'strength', 'complexity', 'vault', 'zero-knowledge',
+    'admin', 'dashboard', 'reporting', 'team', 'collaboration'
   ];
   
   tagKeywords.forEach(keyword => {
@@ -376,8 +376,8 @@ function generateFuteurVaultTags(question: string, answer: string, category: str
     }
   });
   
-  // Limit to 6 tags max
-  return tags.slice(0, 6);
+  // Limit to 8 tags max
+  return tags.slice(0, 8);
 }
 
 // Helper function to remove duplicate FAQs
