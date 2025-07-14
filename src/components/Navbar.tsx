@@ -26,7 +26,7 @@ const NavDropdown = ({ title, children, isOpen, toggleDropdown }) => {
       
       {isOpen && (
         <div className="absolute top-full left-0 mt-2 min-w-[320px] z-50 animate-in fade-in-0 zoom-in-95 duration-200">
-          <div className="backdrop-blur-xl bg-white/90 border border-white/30 rounded-3xl shadow-2xl p-6 ring-1 ring-black/5">
+          <div className="backdrop-blur-xl bg-gradient-to-br from-white/95 via-white/90 to-slate-50/95 border border-white/40 rounded-3xl shadow-2xl p-6 ring-1 ring-black/10">
             {children}
           </div>
         </div>
@@ -130,8 +130,8 @@ const NavigationBar = () => {
       <header className={`w-full transition-all duration-500 ${scrolled ? 'py-4' : 'py-6'}`}>
         <div className="w-full max-w-6xl mx-auto px-6">
           {/* Glass container with dynamic island effect */}
-          <div className={`backdrop-blur-xl bg-white/80 border border-white/30 rounded-full shadow-2xl transition-all duration-500 px-8 py-4 ring-1 ring-black/5 ${
-            scrolled ? 'shadow-xl' : 'shadow-2xl'
+          <div className={`backdrop-blur-xl bg-gradient-to-r from-white/85 via-white/80 to-slate-50/85 border border-white/40 rounded-full shadow-2xl transition-all duration-500 px-8 py-4 ring-1 ring-black/10 ${
+            scrolled ? 'shadow-xl bg-gradient-to-r from-white/90 via-white/85 to-slate-50/90' : 'shadow-2xl'
           }`}>
             <div className="flex items-center justify-between">
               {/* Logo */}
@@ -222,7 +222,7 @@ const NavigationBar = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden mt-4 mx-6 animate-in slide-in-from-top-2 duration-300">
-            <div className="backdrop-blur-xl bg-white/90 border border-white/30 rounded-3xl shadow-2xl p-6 ring-1 ring-black/5">
+            <div className="backdrop-blur-xl bg-gradient-to-br from-white/95 via-white/90 to-slate-50/95 border border-white/40 rounded-3xl shadow-2xl p-6 ring-1 ring-black/10">
               <nav className="flex flex-col space-y-4">
                 <div className="space-y-2">
                   <button 
