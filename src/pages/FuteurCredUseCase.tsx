@@ -466,6 +466,9 @@ const FuteurCredUseCase = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Built on FUTEURSECURE™ Foundation
             </h2>
+            <p className="text-lg md:text-xl font-display font-semibold text-slate-700 mb-4">
+              FUTEURCRED™ is powered and secured by FUTEURSECURE foundation.
+            </p>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
               We don't just protect your EINs and financial docs. We secure your mission, your margin, and your momentum.
             </p>
