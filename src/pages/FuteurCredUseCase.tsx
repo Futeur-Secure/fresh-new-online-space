@@ -393,7 +393,7 @@ const FuteurCredUseCase = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
               Everyone Gets Hacked
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-xl md:text-2xl font-display font-bold leading-relaxed text-slate-700 max-w-4xl mx-auto">
               If billion-dollar companies can't protect data, what makes you think your small business can?
             </p>
           </div>
