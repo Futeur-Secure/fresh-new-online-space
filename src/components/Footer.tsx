@@ -112,11 +112,7 @@ const Footer = () => {
               <div>
                 <h4 className="font-bold mb-4 text-slate-100">Resources</h4>
                 <ul className="space-y-3">
-                  <li><Link to="/documentation" className="text-slate-400 hover:text-slate-200 transition-colors">Documentation</Link></li>
-                  <li><Link to="/solutions" className="text-slate-400 hover:text-slate-200 transition-colors">Solutions</Link></li>
                   <li><Link to="/use-cases" className="text-slate-400 hover:text-slate-200 transition-colors">Use Cases</Link></li>
-                  <li><a href="#" className="text-slate-400 hover:text-slate-200 transition-colors">Security Guide</a></li>
-                  <li><a href="#" className="text-slate-400 hover:text-slate-200 transition-colors">API Docs</a></li>
                 </ul>
               </div>
 
