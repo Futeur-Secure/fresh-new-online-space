@@ -459,19 +459,83 @@ const FuteurCredUseCase = () => {
         </div>
       </section>
 
-      {/* THE DNA: FUTEURSECURE Powers FUTEURCRED */}
-      <section className="py-20 px-6 bg-gradient-to-br from-slate-100 to-blue-100">
+      {/* FUTEURCRED™ - The Backbone of Modern Business Identity */}
+      <section className="py-20 px-6 bg-gradient-to-br from-slate-100 to-blue-100 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
+          {/* Signature Product Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-full border border-slate-700 shadow-lg">
+              <Shield className="h-4 w-4 mr-2 text-emerald-400" />
+              <span className="text-xs font-semibold">Powered by FUTEURSECURE™</span>
+            </div>
+          </div>
+
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Built on FUTEURSECURE™ Foundation
-            </h2>
-            <p className="text-lg md:text-xl font-display font-semibold text-slate-700 mb-4">
-              FUTEURCRED™ is powered and secured by FUTEURSECURE foundation.
+            {/* Main Product Name with Visual Pop */}
+            <div className="mb-6">
+              <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 relative">
+                <span className="bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 bg-clip-text text-transparent relative inline-block group">
+                  FUTEURCRED™
+                  {/* Animated underline effect */}
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 bg-clip-text text-transparent opacity-50 blur-sm"></div>
+                </span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-display font-semibold text-slate-700 mb-8">
+                The Backbone of Modern Business Identity
+              </h2>
+            </div>
+
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl leading-relaxed text-slate-600 max-w-5xl mx-auto">
+              Powered and secured by the <span className="font-bold text-slate-800">FUTEURSECURE™ Foundation</span>, FUTEURCRED™ vaults your EIN, SSN, and financial docs with zero-knowledge encryption — ensuring your data, destiny, and dominance stay in your hands.
             </p>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              We don't just protect your EINs and financial docs. We secure your mission, your margin, and your momentum.
-            </p>
+          </div>
+
+          {/* Hero Visual - Animated Vault Concept */}
+          <div className="flex justify-center mb-16">
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-slate-200 to-white p-12 rounded-3xl shadow-2xl border border-slate-300 overflow-hidden">
+                {/* Main Vault Visual */}
+                <div className="relative w-64 h-48 mx-auto">
+                  {/* Vault Door */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-600 to-slate-800 rounded-2xl shadow-inner">
+                    {/* Vault Handle */}
+                    <div className="absolute top-1/2 right-4 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg"></div>
+                    {/* Lock Mechanism */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <Lock className="h-12 w-12 text-emerald-400 animate-pulse" />
+                    </div>
+                  </div>
+                  
+                  {/* Document Icons Floating In */}
+                  <div className="absolute -top-4 -left-4 animate-bounce delay-100">
+                    <div className="bg-blue-500 rounded-lg p-2 shadow-lg">
+                      <Hash className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute -top-4 -right-4 animate-bounce delay-300">
+                    <div className="bg-purple-500 rounded-lg p-2 shadow-lg">
+                      <Receipt className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-4 -left-4 animate-bounce delay-500">
+                    <div className="bg-emerald-500 rounded-lg p-2 shadow-lg">
+                      <FolderOpen className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Caption */}
+                <p className="text-center text-sm text-slate-600 mt-6 font-medium">
+                  "From your EIN to encrypted intelligence — FUTEURCRED™ does it all."
+                </p>
+
+                {/* Animated glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl animate-pulse"></div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
