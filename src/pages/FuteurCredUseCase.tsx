@@ -37,6 +37,12 @@ import {
 import pipelineImage from "@/assets/futeurcred-pipeline.jpg";
 import businessProtectionImage from "@/assets/business-data-protection.jpg";
 
+// Company logo paths from public directory
+const krispyKremeLogo = "/logos/krispy-kreme.svg";
+const tMobileLogo = "/logos/t-mobile-wordmark-1.svg";
+const moveItLogo = "/logos/Progress_MOVEit_logo.png";
+const paneraBreadLogo = "/logos/panera-bread-1.svg";
+
 const FuteurCredUseCase = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredFeature, setHoveredFeature] = useState(null);
@@ -50,28 +56,32 @@ const FuteurCredUseCase = () => {
       company: "Krispy Kreme",
       year: "2024", 
       impact: "Customer & Employee Data",
-      icon: Building2,
+      logo: krispyKremeLogo,
+      alt: "Krispy Kreme Logo",
       cost: "$2.3M+"
     },
     {
       company: "T-Mobile",
       year: "2023",
       impact: "37M Customer Records", 
-      icon: Globe,
+      logo: tMobileLogo,
+      alt: "T-Mobile Logo",
       cost: "$350M+"
     },
     {
       company: "MOVEit",
       year: "2023",
       impact: "62M+ People Affected",
-      icon: Server,
+      logo: moveItLogo,
+      alt: "MOVEit Logo",
       cost: "$10B+ Global"
     },
     {
       company: "Panera Bread",
       year: "2022",
       impact: "Customer Payment Info",
-      icon: CreditCard,
+      logo: paneraBreadLogo,
+      alt: "Panera Bread Logo",
       cost: "$4.8M+"
     }
   ];
@@ -401,7 +411,13 @@ const FuteurCredUseCase = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {breachExamples.map((breach, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-red-200 hover:shadow-xl transition-all duration-300">
-                <breach.icon className="h-8 w-8 text-red-600 mb-4" />
+                <div className="h-12 mb-4 flex items-center justify-center">
+                  <img 
+                    src={breach.logo} 
+                    alt={breach.alt} 
+                    className="max-h-12 max-w-full object-contain" 
+                  />
+                </div>
                 <h3 className="font-bold text-slate-900 mb-2">{breach.company}</h3>
                 <p className="text-sm text-slate-600 mb-2">{breach.impact}</p>
                 <div className="text-xs text-red-700 font-semibold">{breach.cost} in damages</div>
