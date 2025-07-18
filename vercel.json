@@ -2,7 +2,7 @@
   "rewrites": [
     { 
       "source": "/(.*)",
-      "destination": "/use-cases/futeurcred",
+      "destination": "/use-cases/futeurcred$1",
       "has": [
         {
           "type": "host",
