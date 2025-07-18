@@ -11,6 +11,30 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/use-cases/futeurcred",
+      "destination": "https://futeurcred.futeursecure.com",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.futeursecure.com"
+        }
+      ]
+    },
+    {
+      "source": "/use-cases/futeurcred",
+      "destination": "https://futeurcred.futeursecure.com",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "futeursecure.com"
+        }
+      ]
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
