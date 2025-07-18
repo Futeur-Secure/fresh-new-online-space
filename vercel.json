@@ -1,45 +1,29 @@
 {
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/use-cases/futeurcred",
-      "headers": {
-        "x-matched-path": "/"
-      },
+  "rewrites": [
+    { 
+      "source": "/(.*)",
+      "destination": "/use-cases/futeurcred",
       "has": [
         {
           "type": "host",
           "value": "futeurcred.futeursecure.com"
         }
       ]
-    },
+    }
+  ],
+  "headers": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "futeurcred.futeursecure.com"
         }
-      ]
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/js/$1",
-      "has": [
+      ],
+      "headers": [
         {
-          "type": "host",
-          "value": "futeurcred.futeursecure.com"
-        }
-      ]
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/css/$1",
-      "has": [
-        {
-          "type": "host",
-          "value": "futeurcred.futeursecure.com"
+          "key": "x-matched-path",
+          "value": "/"
         }
       ]
     }
