@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/use-cases/futeurcred",
+      "has": [
+        {
+          "type": "host",
+          "value": "futeurcred.futeursecure.com"
+        }
+      ]
+    }
+  ]
+}
