@@ -1,14 +1,9 @@
 {
-  "rewrites": [
-    { 
-      "source": "/(.*)",
-      "destination": "/use-cases/futeurcred$1",
-      "has": [
-        {
-          "type": "host",
-          "value": "futeurcred.futeursecure.com"
-        }
-      ]
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "redirects": [
@@ -38,19 +33,20 @@
   "headers": [
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "futeurcred.futeursecure.com"
-        }
-      ],
       "headers": [
         {
-          "key": "x-matched-path",
-          "value": "/"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
     }
-  ],
-  "trailingSlash": false
+  ]
 }
